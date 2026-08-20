@@ -1,133 +1,158 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a; 
+    color: #c9c9c9;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    border-left: 8px solid #333; 
 }
 
 
-body {
-    background-color: #121212; 
-    color: #e0e0e0; 
-    line-height: 1.6;
+h1, h2, h3 {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: -1px;
 }
 
 
 .apresentacao {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #333;
+    padding: 5rem 2rem;
+    border-bottom: 2px solid #fff;
+    background: repeating-linear-gradient(
+        45deg,
+        #0a0a0a,
+        #0a0a0a 10px,
+        #111111 10px,
+        #111111 20px
+    ); 
 }
 
 .foto-perfil {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; 
+    width: 160px;
+    height: 160px;
+    border-radius: 0; 
     object-fit: cover;
-    border: 3px solid #555;
-    margin-bottom: 1rem;
+    border: 3px solid #fff;
+    box-shadow: 6px 6px 0px #333; 
+    filter: grayscale(100%); 
+    transition: filter 0.3s ease, transform 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+
+.foto-perfil:hover {
+    filter: grayscale(0%);
+    transform: translate(-2px, -2px);
 }
 
 .apresentacao h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
 }
 
 .apresentacao h2 {
-    font-size: 1.2rem;
-    color: #a0a0a0;
-    font-weight: 400;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 2.5rem;
 }
 
 .objetivos {
     max-width: 600px;
-    margin: 0 auto;
-    background-color: #222;
+    margin: 0; 
     padding: 1.5rem;
-    border-radius: 8px;
+    background-color: #000;
+    border: 1px solid #444;
+    border-left: 4px solid #fff;
 }
 
 
 main {
     max-width: 900px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3rem 2rem;
 }
 
 section {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 section h2 {
-    font-size: 2rem;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #7d43a0; 
-    padding-left: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    border-bottom: 4px solid #fff;
+    padding-bottom: 5px;
 }
 
 
 .projeto-card {
-    background-color: #1e1e1e;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
+    background-color: #000;
+    padding: 2rem;
+    margin-bottom: 2rem;
     border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 5px 5px 0px #222; 
+    transition: all 0.2s ease-in-out;
 }
 
 
 .projeto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
-    border-color: #555;
+    transform: translate(-4px, -4px);
+    box-shadow: 9px 9px 0px #fff;
+    border-color: #fff;
 }
 
 .projeto-card h3 {
-    color: #ffffff;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .projeto-card p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .projeto-card strong {
-    color: #7d43a0; 
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
 }
 
 
 a {
-    color: #7d43a0;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-family: 'Space Mono', monospace;
+    background-color: #222;
+    padding: 4px 8px;
+    border: 1px solid #444;
+    transition: all 0.2s;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 a:hover {
-    color: #7d43a0;
-    text-decoration: underline;
+    background-color: #fff;
+    color: #000;
 }
 
 
 .contato {
-    text-align: center;
-    padding: 3rem;
-    background-color: #1a1a1a;
-    border-top: 2px solid #333;
+    padding: 4rem 2rem;
+    border-top: 2px solid #fff;
+    background-color: #050505;
 }
 
 .links-contato {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.links-contato a {
-    font-size: 1.2rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
