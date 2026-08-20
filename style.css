@@ -1,0 +1,147 @@
+/* =========================================
+   Reset Básico (Tira margens padrão do navegador)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================
+   Cores e Fundo (Estética Dark Mode)
+   ========================================= */
+body {
+    background-color: #121212; /* Fundo escuro/grafite */
+    color: #e0e0e0; /* Texto claro para contraste */
+    line-height: 1.6;
+}
+
+/* =========================================
+   Apresentação Pessoal (Header)
+   ========================================= */
+.apresentacao {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #333;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover;
+    border: 3px solid #555;
+    margin-bottom: 1rem;
+}
+
+.apresentacao h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.apresentacao h2 {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.objetivos {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #222;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* =========================================
+   Sessões Principais (Projetos e Currículo)
+   ========================================= */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #4CAF50; /* Detalhe verde sutil */
+    padding-left: 10px;
+}
+
+/* =========================================
+   Cards de Projetos (Efeito de interação)
+   ========================================= */
+.projeto-card {
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animação: o card "pula" levemente quando passa o mouse */
+.projeto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+    border-color: #555;
+}
+
+.projeto-card h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.projeto-card p {
+    margin-bottom: 0.5rem;
+}
+
+.projeto-card strong {
+    color: #4CAF50; /* Destaque para os tópicos exigidos */
+}
+
+/* =========================================
+   Links e Botões
+   ========================================= */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #81c784;
+    text-decoration: underline;
+}
+
+/* =========================================
+   Rodapé (Contato)
+   ========================================= */
+.contato {
+    text-align: center;
+    padding: 3rem;
+    background-color: #1a1a1a;
+    border-top: 2px solid #333;
+}
+
+.links-contato {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.links-contato a {
+    font-size: 1.2rem;
+}
