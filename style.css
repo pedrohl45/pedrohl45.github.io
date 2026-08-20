@@ -1,6 +1,4 @@
-/* =========================================
-   Reset Básico (Tira margens padrão do navegador)
-   ========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,18 +6,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* =========================================
-   Cores e Fundo (Estética Dark Mode)
-   ========================================= */
+
 body {
-    background-color: #121212; /* Fundo escuro/grafite */
-    color: #e0e0e0; /* Texto claro para contraste */
+    background-color: #121212; 
+    color: #e0e0e0; 
     line-height: 1.6;
 }
 
-/* =========================================
-   Apresentação Pessoal (Header)
-   ========================================= */
+
 .apresentacao {
     text-align: center;
     padding: 4rem 2rem;
@@ -30,7 +24,7 @@ body {
 .foto-perfil {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Deixa a foto redonda */
+    border-radius: 50%; 
     object-fit: cover;
     border: 3px solid #555;
     margin-bottom: 1rem;
@@ -57,9 +51,7 @@ body {
     border-radius: 8px;
 }
 
-/* =========================================
-   Sessões Principais (Projetos e Currículo)
-   ========================================= */
+
 main {
     max-width: 900px;
     margin: 0 auto;
@@ -74,13 +66,11 @@ section h2 {
     font-size: 2rem;
     color: #ffffff;
     margin-bottom: 1.5rem;
-    border-left: 4px solid #4CAF50; /* Detalhe verde sutil */
+    border-left: 4px solid #4CAF50; 
     padding-left: 10px;
 }
 
-/* =========================================
-   Cards de Projetos (Efeito de interação)
-   ========================================= */
+
 .projeto-card {
     background-color: #1e1e1e;
     padding: 1.5rem;
@@ -90,7 +80,7 @@ section h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animação: o card "pula" levemente quando passa o mouse */
+
 .projeto-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.5);
@@ -107,12 +97,10 @@ section h2 {
 }
 
 .projeto-card strong {
-    color: #4CAF50; /* Destaque para os tópicos exigidos */
+    color: #4CAF50; 
 }
 
-/* =========================================
-   Links e Botões
-   ========================================= */
+
 a {
     color: #4CAF50;
     text-decoration: none;
@@ -125,9 +113,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* =========================================
-   Rodapé (Contato)
-   ========================================= */
+
 .contato {
     text-align: center;
     padding: 3rem;
