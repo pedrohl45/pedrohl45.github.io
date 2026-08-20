@@ -44,10 +44,7 @@ h1, h2, h3 {
     object-fit: cover;
     border: 1px solid #4a524d;
     
-    filter: grayscale(100%) contrast(130%) brightness(70%); 
-    margin-bottom: 1.5rem;
-    padding: 4px; 
-    background-color: #0c0d0c;
+    
 }
 
 .apresentacao h1 {
