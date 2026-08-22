@@ -1,5 +1,14 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500&family=Cutive+Mono&display=swap');
+:root {
+    --bg-color: #09090a;
+    --bg-secondary: #0f0f11;
+    --bg-card: #1f1f23;
+    --text-main: #e4e4e7;
+    --text-muted: #a1a1aa;
+    --primary: #c82245;
+    --primary-hover: #e0284f;
+    --border-color: #2a2a30;
+    --font-family: 'PT Sans', sans-serif;
+}
 
 * {
     margin: 0;
@@ -8,147 +17,219 @@
 }
 
 body {
-    background-color: #09090a; 
-    background-image: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.02) 2px,
-        rgba(255, 255, 255, 0.02) 4px
-    ); 
-    color: #e4e4e7; 
-    font-family: 'Cutive Mono', monospace; 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    font-family: var(--font-family); 
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-    font-family: 'Teko', sans-serif; 
-    text-transform: uppercase;
-    color: #e4e4e7; 
-    font-weight: 400;
-    letter-spacing: 1.5px;
+    color: var(--text-main); 
+    font-weight: 700;
 }
 
 .apresentacao {
-    padding: 4rem 2rem;
-    border-bottom: 1px solid #2a2a30;
-    background-color: #09090a;
+    padding: 6rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(9, 9, 10, 0.8);
+    background-image: radial-gradient(circle at center, rgba(200, 34, 69, 0.08) 0%, transparent 60%);
     text-align: center;
+    position: relative;
 }
 
 .foto-perfil {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    border: 3px solid #c82245;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 30px rgba(200, 34, 69, 0.4);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 10;
 }
 
 .apresentacao h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0px;
-    line-height: 1;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .apresentacao h2 {
     font-size: 1.2rem;
-    color: #a1a1aa;
-    margin-bottom: 2rem;
-    font-family: 'Cutive Mono', monospace;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
 }
 
 .objetivos {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 1.5rem;
-    background-color: #0f0f11;
-    border: 1px solid #2a2a30;
+    padding: 2rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
     text-align: left;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .objetivos h3 {
     font-size: 1.5rem;
-    border-bottom: 1px solid #2a2a30;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    color: #c82245;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.objetivos p {
+    color: var(--text-muted);
 }
 
 main {
-    max-width: 800px; 
+    max-width: 900px; 
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
 }
 
 section {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #2a2a30;
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
     display: block;
+    padding-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.projetos {
+    display: grid;
+    gap: 1.5rem;
 }
 
 .projeto-card {
-    background-color: #1f1f23;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #2a2a30;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
 .projeto-card:hover {
-    border-color: #c82245;
+    border-color: rgba(200, 34, 69, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
 .projeto-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #c82245;
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-main);
 }
 
 .projeto-card p {
     margin-bottom: 0.8rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }
 
 .projeto-card strong {
-    color: #a1a1aa; 
-    font-weight: bold;
+    color: var(--text-main); 
+    font-weight: 700;
 }
 
 a {
-    color: #c82245;
+    color: var(--primary);
     text-decoration: none;
-    border-bottom: 1px dotted #c82245;
-    transition: color 0.2s, border-color 0.2s;
+    transition: color 0.2s;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 a:hover {
-    color: #e0284f;
-    border-bottom: 1px solid #e0284f;
+    color: var(--primary-hover);
+}
+
+a:hover:not(.links-contato a) {
+    text-decoration: underline;
 }
 
 .contato {
-    padding: 3rem 2rem;
-    background-color: #09090a;
-    border-top: 1px solid #2a2a30;
+    padding: 4rem 2rem;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
     text-align: center;
+}
+
+.contato h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
 }
 
 .links-contato {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.links-contato a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-main);
+    font-weight: 700;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.links-contato a:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(200, 34, 69, 0.3);
 }
 
 ul {
-    list-style-type: square;
-    padding-left: 1.5rem;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-muted);
+}
+
+li::before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.curriculo ul {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
 }
