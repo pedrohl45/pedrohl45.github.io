@@ -3,64 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Acadêmico - Pedro</title>
-    <!-- Google Fonts -->
+    <title>Pedro Henrique Cabral Leite | Desenvolvedor de Software</title>
+    <meta name="description" content="Portfólio de Pedro Henrique - Desenvolvedor de Software">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="apresentacao">
-        <img src="pfp1.jfif" alt="Foto de Pedro" class="foto-perfil">
-        <h1>Pedro Henrique Cabral Leite</h1>
-        <h2>Cursando Desenvolvimento de Software Multiplataforma - FATEC São José dos Campos</h2>
-        <div class="objetivos">
-            <h3>Objetivos e Interesses</h3>
-            <p>Desenvolvedor em formação com foco em backend muito interessado em Python, HTML e CSS, ainda aprendendo sobre outras ferramentas e disposto a ficar horas estudando para aprender mais e me desenvolver como dev.</p>
-        </div>
-    </header>
-    <main>
-        <section class="projetos" id="projetos">
-            <h2>Meus Projetos</h2>
-            <article class="projeto-card">
-                <h3>TayamaBot (Bot para Discord)</h3>
-                <p><strong>Descrição:</strong> Assistente acadêmica noturna e de produtividade desenvolvida em Python. O bot automatiza o cálculo de faltas e notas, organiza a rotina acadêmica, conta com registro de horas de estudo e metodologias ágeis, e possui integração com banco de dados MySQL.</p>
-                <p><strong>Repositório:</strong> <a href="https://github.com/pedrohl45/tayama-fatec-bot" target="_blank"><i data-lucide="github" width="16" height="16"></i> GitHub</a></p>
-                <p><strong>Site Oficial:</strong> <a href="https://pedrohl45-tayama-fatec-bot.vercel.app" target="_blank"><i data-lucide="external-link" width="16" height="16"></i> Acessar</a></p>
-                <p><strong>Tecnologias:</strong> Python, Discord.py, MySQL, HTML, CSS, JavaScript</p>
-            </article>
-            <article class="projeto-card">
-                <h3>API - 1º Semestre</h3>
-                <p><strong>Parceiro:</strong> n/a</p>
-                <p><strong>O Problema:</strong> n/a</p>
-                <p><strong>A Solução:</strong> n/a</p>
-                <p><strong>Tecnologias:</strong> n/a</p>
-                <p><strong>Minhas Contribuições:</strong> n/a</p>
-                <p><strong>Hard Skills:</strong> n/a</p>
-                <p><strong>Soft Skills:</strong> n/a</p>
-            </article>
-        </section>
-        <section class="curriculo" id="curriculo">
-            <h2>Informações Curriculares</h2>
-            <ul>
-                <li>Curso </li>
-                <li>Participação em Eventos </li>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">pedro<span>hl45</span></a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Arsenal Técnico</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-        </section>
-    </main>
-    <footer class="contato" id="contato">
-        <h2>Contato</h2>
-        <div class="links-contato">
-            <a href="https://www.linkedin.com/in/pedrohl45/" target="_blank"><i data-lucide="linkedin" width="20" height="20"></i> LinkedIn</a>
-            <a href="https://github.com/pedrohl45" target="_blank"><i data-lucide="github" width="20" height="20"></i> GitHub</a>
-            <a href="mailto:pedrocabralleite@gmail.com"><i data-lucide="mail" width="20" height="20"></i> E-mail</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <h1>Opa, eu sou o<br><span class="highlight">Pedro Henrique</span></h1>
+                <h2>Desenvolvedor de Software</h2>
+                <p>Curto construir sistemas completos, do banco de dados e APIs robustas até a interface. Sou usuário assíduo de Arch Linux (onde criei meu próprio workflow visual) e passo a maior parte do tempo no terminal.</p>
+                <div class="hero-cta">
+                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <div class="social-links-hero">
+                        <a href="https://github.com/pedrohl45" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+                        <a href="https://www.linkedin.com/in/pedrohl45/" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <div class="image-wrapper glow-effect">
+                    <img src="data:image/jpeg;base64,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" alt="Pedro Henrique">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <div class="section-container">
+            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-text fade-in">
+                    <p>Estudo <strong>Desenvolvimento de Software</strong> na <strong>Fatec São José dos Campos</strong>.</p>
+                    <p>Me considero um desenvolvedor bem versátil. Apesar do meu foco forte em Backend e integrações de API, também me garanto desenhando Landing Pages, frontends responsivos e customizando interfaces de sistemas operacionais do zero.</p>
+                    <p>No meu dia a dia, meu sistema principal é o <strong>Arch Linux</strong> (onde fiz o ricing completo do ambiente), mas também possuo forte vivência com <strong>Debian, Ubuntu e Linux Mint</strong>, além de dominar interfaces como o <strong>Cinnamon</strong>. Construo bots complexos para Discord (com isolamento de estado, OOP e banco de dados) e faço integrações pesadas de automação.</p>
+                    <p>Fora do código, provavelmente estou ouvindo Post-Punk ou Darkwave e tentando aprender alguma tecnologia nova de madrugada.</p>
+                    <p>No momento estou procurando uma vaga de <strong>Estágio ou Júnior</strong> na área.</p>
+                </div>
+                <div class="sobre-stats fade-in">
+                    <div class="stat-card">
+                        <i data-lucide="folder-git-2"></i>
+                        <h3>7+</h3>
+                        <p>Repositórios</p>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="terminal-square"></i>
+                        <h3>Arch</h3>
+                        <p>Linux User</p>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="graduation-cap"></i>
+                        <h3>Fatec SJC</h3>
+                        <p>Graduação</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="habilidades" id="habilidades">
+        <div class="section-container">
+            <h2 class="section-title fade-in">Arsenal Técnico</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category fade-in">
+                    <h3>Linguagens & Core</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="devicon-python-plain colored"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-bash-plain colored"></i>
+                            <span>Shell Script</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-javascript-plain colored"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-html5-plain colored"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-css3-plain colored"></i>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Backend & Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="devicon-flask-original colored"></i>
+                            <span>Flask</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-pandas-original colored"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-googlecloud-plain colored"></i>
+                            <span>Google APIs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-python-plain"></i>
+                            <span>Discord.py</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="file-video"></i>
+                            <span>FFmpeg</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="youtube"></i>
+                            <span>yt-dlp</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="server"></i>
+                            <span>REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Banco de Dados</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="devicon-mysql-plain colored"></i>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Sistema & Ambiente</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="devicon-linux-plain colored"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-git-plain colored"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-github-original colored"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-vscode-plain colored"></i>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-jira-plain colored"></i>
+                            <span>Jira (Agile)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="projetos" id="projetos">
+        <div class="section-container">
+            <h2 class="section-title fade-in">Projetos</h2>
+            <div class="projects-grid">
+                
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>Integração Google Workspace</h3>
+                        <p class="project-desc">Sistema de automação desenvolvido em Python para se conectar diretamente com as APIs do Google (Drive e Agenda). O projeto manipula eventos no calendário, gerencia arquivos na nuvem e lida com autenticação segura (OAuth2).</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Google Cloud APIs</span>
+                            <span class="tag">Automação</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- Link placeholder caso você suba no github depois -->
+                            <!-- <a href="#" target="_blank" class="btn-icon"><i data-lucide="github"></i> Repo</a> -->
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>API FATEC: Crédito Inclusivo (BCB)</h3>
+                        <p class="project-desc">Projeto integrado do 1º semestre da FATEC. Aplicação para análise de dados do Banco Central (BACEN), IBGE e Serasa para calcular o "Score de Oportunidade" por região, ajudando na inclusão de crédito. Desenvolvido com metodologias ágeis (Scrum/Jira).</p>
+                        <div class="project-tags">
+                            <span class="tag">Python/Flask</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">HTML/CSS/JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>TayamaBot</h3>
+                        <p class="project-desc">Bot para Discord + Painel Web SPA criados pra organizar a vida na faculdade. O bot calcula faltas, notas, riscos de DP e gerencia turmas de forma isolada, tudo salvando as informações em um banco relacional MySQL próprio.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Discord.py</span>
+                            <span class="tag">HTML/CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pedrohl45/tayama-fatec-bot" target="_blank" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                            <a href="https://pedrohl45-tayama-fatec-bot.vercel.app" target="_blank" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>YamadaBot & Landing Page</h3>
+                        <p class="project-desc">Um ecossistema completo focado em música para o Discord. Desenvolvi o bot de áudio com yt-dlp e FFmpeg (com isolamento de estado para múltiplos servidores) e programei toda a landing page responsiva que apresenta o projeto.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">yt-dlp</span>
+                            <span class="tag">HTML/CSS/JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pedrohl45/yamada-music-bot" target="_blank" class="btn-icon"><i data-lucide="github"></i> Bot</a>
+                            <a href="https://yamada-music-bot-site.vercel.app" target="_blank" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>Arch Linux Ricing & Scripts</h3>
+                        <p class="project-desc">Meu laboratório pessoal onde configurei todo meu sistema Arch Linux do zero. Desenvolvi interfaces gráficas customizadas (Window Managers) e scripts em Shell para automação do meu workflow diário.</p>
+                        <div class="project-tags">
+                            <span class="tag">Shell/Bash</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Ricing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pedrohl45/estudos-linux" target="_blank" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>Site FATEC Dev</h3>
+                        <p class="project-desc">Repositório de testes. Guardo aqui alguns experimentos e interfaces institucionais frontend que desenvolvo e testo para a Fatec.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pedrohl45/site-fatec-dev" target="_blank" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                            <a href="https://pedrohl45.github.io/site-fatec-dev/" target="_blank" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="formacao" id="formacao">
+        <div class="section-container">
+            <h2 class="section-title fade-in">Formação</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Cursando</span>
+                        <h3>Desenvolvimento de Software Multiplataforma</h3>
+                        <h4>Fatec São José dos Campos (Prof. Jessen Vidal)</h4>
+                        <p>Estudando programação focada no mercado, cobrindo backend, frontend, banco de dados e metodologias ágeis de forma prática.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Projetos Acadêmicos</span>
+                        <h3>Aprendizagem por Projetos Integrados (API)</h3>
+                        <h4>Fatec SJC</h4>
+                        <p>Projetos desenvolvidos em grupo todo semestre resolvendo problemas reais para clientes parceiros da faculdade.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="contato" id="contato">
+        <div class="section-container">
+            <div class="contato-wrapper fade-in">
+                <div class="contato-info" style="text-align: center; margin: 0 auto; max-width: 600px;">
+                    <h2 class="section-title" >Contato</h2>
+                    <p style="margin-bottom: 3rem;">Se quiser trocar uma ideia, falar sobre código ou oportunidades de estágio/júnior, me dá um toque por aqui:</p>
+                    
+                    <div class="contact-links" style="align-items: center;">
+                        <a href="mailto:pedrocabralleite@gmail.com" class="contact-card" style="width: 100%; max-width: 400px; justify-content: center;">
+                            <div class="contact-icon"><i data-lucide="mail"></i></div>
+                            <div class="contact-details" style="align-items: flex-start;">
+                                <span>Email</span>
+                                <strong>pedrocabralleite@gmail.com</strong>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/pedrohl45/" target="_blank" class="contact-card" style="width: 100%; max-width: 400px; justify-content: center;">
+                            <div class="contact-icon"><i data-lucide="linkedin"></i></div>
+                            <div class="contact-details" style="align-items: flex-start;">
+                                <span>LinkedIn</span>
+                                <strong>/in/pedrohl45</strong>
+                            </div>
+                        </a>
+                        <a href="https://github.com/pedrohl45" target="_blank" class="contact-card" style="width: 100%; max-width: 400px; justify-content: center;">
+                            <div class="contact-icon"><i data-lucide="github"></i></div>
+                            <div class="contact-details" style="align-items: flex-start;">
+                                <span>GitHub</span>
+                                <strong>@pedrohl45</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>Feito por Pedro Henrique Cabral Leite</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
     <script>
-      lucide.createIcons();
+        lucide.createIcons();
     </script>
 </body>
 </html>
