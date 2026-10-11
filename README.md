@@ -6,10 +6,10 @@
 
 **[🌐 pedrohl45.github.io](https://pedrohl45.github.io)**
 
-![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=C82245)
-![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=C82245)
-![JavaScript](https://img.shields.io/badge/JavaScript-0d1117?style=for-the-badge&logo=javascript&logoColor=C82245)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-0d1117?style=for-the-badge&logo=githubpages&logoColor=C82245)
+![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=862cd1)
+![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=862cd1)
+![JavaScript](https://img.shields.io/badge/JavaScript-0d1117?style=for-the-badge&logo=javascript&logoColor=862cd1)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-0d1117?style=for-the-badge&logo=githubpages&logoColor=862cd1)
 
 </div>
 
