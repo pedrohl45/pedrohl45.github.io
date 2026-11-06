@@ -24,10 +24,10 @@ Site estático, em português, escrito do zero com **HTML, CSS e JavaScript puro
 | Seção | Conteúdo |
 |:---|:---|
 | **Início** | Apresentação, botão para os projetos e links de GitHub e LinkedIn |
-| **Sobre mim** | Formação, foco em backend e Linux, e o que estou buscando (estágio ou vaga júnior) |
+| **Sobre mim** | Formação, foco em backend e Linux, e o estágio atual na ITNEX |
 | **Arsenal técnico** | Linguagens, backend, banco de dados, sistema e ferramentas |
-| **Projetos** | Automação Fatec, API FATEC, TayamaBot, YamadaBot, Arch Linux e scripts |
-| **Formação** | DSM na Fatec São José dos Campos e Aprendizagem por Projetos Integrados (API) |
+| **Projetos** | Estágio na ITNEX (código privado) e projetos pessoais: Automação Fatec, API FATEC, TayamaBot, YamadaBot, Arch Linux e scripts |
+| **Experiência & Formação** | Estágio na ITNEX, DSM na Fatec São José dos Campos e Aprendizagem por Projetos Integrados (API) |
 | **Contato** | E-mail, LinkedIn e GitHub |
 
 ## 🗂️ Estrutura

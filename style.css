@@ -484,6 +484,34 @@ img {
     color: var(--primary);
 }
 
+.projects-group-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+}
+
+.projects-grid + .projects-group-title {
+    margin-top: 4rem;
+}
+
+.project-private {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.project-private i,
+.project-private svg {
+    width: 16px;
+    height: 16px;
+}
+
 .timeline {
     position: relative;
     max-width: 800px;
