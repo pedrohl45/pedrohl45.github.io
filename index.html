@@ -19,10 +19,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261106">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
             <div class="hero-text fade-in">
                 <h1>Opa, eu sou o<br><span class="highlight">Pedro Henrique</span></h1>
                 <h2>Desenvolvedor de Software</h2>
-                <p>Curto construir sistemas completos, do banco de dados e APIs robustas até a interface. Sou usuário assíduo de Arch Linux (onde criei meu próprio workflow visual) e passo a maior parte do tempo no terminal.</p>
+                <p>Curto construir sistemas completos, do banco de dados e APIs robustas até a interface. Uso Ubuntu no trabalho e Arch Linux em casa (onde criei meu próprio workflow visual) e passo a maior parte do tempo no terminal.</p>
                 <div class="hero-cta">
                     <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
                     <div class="social-links-hero">
@@ -73,7 +73,7 @@
                 <div class="sobre-text fade-in">
                     <p>Estudo <strong>Desenvolvimento de Software</strong> na <strong>Fatec São José dos Campos</strong>.</p>
                     <p>Me considero um desenvolvedor bem versátil. Apesar do meu foco forte em Backend e integrações de API, também me garanto desenhando Landing Pages, frontends responsivos e customizando interfaces de sistemas operacionais do zero.</p>
-                    <p>No meu dia a dia, meu sistema principal é o <strong>Arch Linux</strong> (onde fiz o ricing completo do ambiente), mas também possuo forte vivência com <strong>Debian, Ubuntu e Linux Mint</strong>, além de dominar interfaces como o <strong>Cinnamon</strong>. Construo bots complexos para Discord (com isolamento de estado, OOP e banco de dados) e faço integrações pesadas de automação.</p>
+                    <p>No trabalho uso distros baseadas em <strong>Ubuntu</strong> (Kubuntu) e rodo as cargas mais pesadas em máquinas <strong>NVIDIA</strong> acessadas por <strong>SSH</strong>. Em casa meu sistema é o <strong>Arch Linux</strong> (onde fiz o ricing completo do ambiente), e também tenho vivência com <strong>Debian e Linux Mint</strong>, além de dominar interfaces como o <strong>Cinnamon</strong>. Construo bots complexos para Discord (com isolamento de estado, OOP e banco de dados) e faço integrações pesadas de automação.</p>
                     <p>Fora do código, provavelmente estou ouvindo Post-Punk ou Darkwave e tentando aprender alguma tecnologia nova de madrugada.</p>
                     <p>Hoje sou <strong>estagiário de desenvolvimento de software na ITNEX</strong>, onde trabalho com aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus e IoT com ESP32. Sigo aberto a conversar sobre vagas júnior.</p>
                 </div>
@@ -85,8 +85,8 @@
                     </div>
                     <div class="stat-card">
                         <i data-lucide="terminal-square"></i>
-                        <h3>Arch</h3>
-                        <p>Linux User</p>
+                        <h3>Linux</h3>
+                        <p>Ubuntu + Arch</p>
                     </div>
                     <div class="stat-card">
                         <i data-lucide="graduation-cap"></i>
@@ -207,6 +207,14 @@
                         <div class="skill-item">
                             <i class="devicon-linux-plain colored"></i>
                             <span>Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-ubuntu-plain colored"></i>
+                            <span>Ubuntu</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="terminal"></i>
+                            <span>SSH</span>
                         </div>
                         <div class="skill-item">
                             <i class="devicon-docker-plain colored"></i>
@@ -413,7 +421,7 @@
                         <span class="timeline-date">out/2026 – atual</span>
                         <h3>Estagiário de Desenvolvimento de Software</h3>
                         <h4>ITNEX</h4>
-                        <p>Aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus (TOTVS) e projetos de IoT com ESP32 e MQTT, em ambientes com Docker.</p>
+                        <p>Aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus (TOTVS) e projetos de IoT com ESP32 e MQTT, em ambientes com Docker. Desenvolvimento em Ubuntu, com execução remota em máquinas NVIDIA via SSH.</p>
                     </div>
                 </div>
 
@@ -433,7 +441,18 @@
                         <span class="timeline-date">Projetos Acadêmicos</span>
                         <h3>Aprendizagem por Projetos Integrados (API)</h3>
                         <h4>Fatec SJC</h4>
-                        <p>Projetos desenvolvidos em grupo todo semestre resolvendo problemas reais para clientes parceiros da faculdade.</p>
+                        <p>Projetos desenvolvidos em grupo todo semestre, resolvendo problemas reais para clientes parceiros da faculdade, com Scrum e Jira.</p>
+                        <p class="timeline-project"><strong>1º semestre (2026) · Negado pelo Banco: Crédito Inclusivo com Dados do BCB.</strong> Site que identifica regiões com alto potencial de crédito, mas sem acesso ao sistema financeiro tradicional. A partir de dados públicos do Banco Central (BCB/BACEN), IBGE e Serasa, calcula um "Score de Oportunidade" por região para que analistas de crédito comparem territórios com filtros e indicadores. Análise de dados no Google Colab e site em Python (Flask), HTML e CSS.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python/Flask</span>
+                            <span class="tag">Análise de dados</span>
+                            <span class="tag">Google Colab</span>
+                            <span class="tag">Scrum/Jira</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                            <a href="https://api-dsm-1-semestre-2026.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
                     </div>
                 </div>
 
@@ -449,21 +468,21 @@
                     <p style="margin-bottom: 3rem;">Se quiser trocar uma ideia, falar sobre código ou oportunidades, me dá um toque por aqui:</p>
                     
                     <div class="contact-links" style="align-items: center;">
-                        <a href="mailto:pedrocabralleite@gmail.com" class="contact-card" style="width: 100%; max-width: 400px; justify-content: center;">
+                        <a href="mailto:pedrocabralleite@gmail.com" class="contact-card" style="width: 100%; max-width: 400px; justify-content: flex-start;">
                             <div class="contact-icon"><i data-lucide="mail"></i></div>
                             <div class="contact-details" style="align-items: flex-start;">
                                 <span>Email</span>
                                 <strong>pedrocabralleite@gmail.com</strong>
                             </div>
                         </a>
-                        <a href="https://www.linkedin.com/in/pedrohl45/" target="_blank" rel="noopener" class="contact-card" style="width: 100%; max-width: 400px; justify-content: center;">
+                        <a href="https://www.linkedin.com/in/pedrohl45/" target="_blank" rel="noopener" class="contact-card" style="width: 100%; max-width: 400px; justify-content: flex-start;">
                             <div class="contact-icon"><i data-lucide="linkedin"></i></div>
                             <div class="contact-details" style="align-items: flex-start;">
                                 <span>LinkedIn</span>
                                 <strong>/in/pedrohl45</strong>
                             </div>
                         </a>
-                        <a href="https://github.com/pedrohl45" target="_blank" rel="noopener" class="contact-card" style="width: 100%; max-width: 400px; justify-content: center;">
+                        <a href="https://github.com/pedrohl45" target="_blank" rel="noopener" class="contact-card" style="width: 100%; max-width: 400px; justify-content: flex-start;">
                             <div class="contact-icon"><i data-lucide="github"></i></div>
                             <div class="contact-details" style="align-items: flex-start;">
                                 <span>GitHub</span>
