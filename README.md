@@ -6,10 +6,10 @@
 
 **[🌐 pedrohl45.github.io](https://pedrohl45.github.io)**
 
-![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=862cd1)
-![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=862cd1)
-![JavaScript](https://img.shields.io/badge/JavaScript-0d1117?style=for-the-badge&logo=javascript&logoColor=862cd1)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-0d1117?style=for-the-badge&logo=githubpages&logoColor=862cd1)
+![HTML5](https://img.shields.io/badge/HTML5-3b2a22?style=for-the-badge&logo=html5&logoColor=d39d90)
+![CSS3](https://img.shields.io/badge/CSS3-3b2a22?style=for-the-badge&logo=css3&logoColor=d39d90)
+![JavaScript](https://img.shields.io/badge/JavaScript-3b2a22?style=for-the-badge&logo=javascript&logoColor=d39d90)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-3b2a22?style=for-the-badge&logo=githubpages&logoColor=d39d90)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## 🖤 Sobre o projeto
 
-Site estático, em português, escrito do zero com **HTML, CSS e JavaScript puros** (sem framework e sem build). Tema escuro, layout responsivo e animações leves de entrada ao rolar a página.
+Site estático, em português e inglês, escrito do zero com **HTML, CSS e JavaScript puros** (sem framework e sem build). Paleta café com tema claro e escuro (segue o sistema e tem botão de sol/lua), layout responsivo e animações leves de entrada ao rolar a página. A versão em inglês fica em [`?lang=en`](https://pedrohl45.github.io/?lang=en).
 
 ## 🧭 Seções do site
 
@@ -35,8 +35,9 @@ Site estático, em português, escrito do zero com **HTML, CSS e JavaScript puro
 ```
 pedrohl45.github.io/
  ┣ index.html   # marcação e conteúdo de todas as seções
- ┣ style.css    # tema escuro, variáveis de cor e responsividade
- ┗ script.js    # menu mobile, destaque da seção ativa e animações de entrada
+ ┣ style.css    # paleta café, temas claro/escuro e responsividade
+ ┣ i18n.js      # traduções e troca de idioma (PT/EN)
+ ┗ script.js    # tema, menu mobile, seção ativa e animações de entrada
 ```
 
 ## 🛠️ Tecnologias

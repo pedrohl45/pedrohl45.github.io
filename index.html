@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedro Henrique Cabral Leite | Desenvolvedor de Software</title>
     <meta name="description" content="Portfólio de Pedro Henrique Cabral Leite: desenvolvedor de software com foco em backend, automação e Linux. Estudante de DSM na Fatec São José dos Campos e estagiário de desenvolvimento na ITNEX.">
-    <meta name="theme-color" content="#030303">
+    <meta name="theme-color" content="#f3eee8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#17120f" media="(prefers-color-scheme: dark)">
+    <link rel="alternate" hreflang="pt-BR" href="https://pedrohl45.github.io/">
+    <link rel="alternate" hreflang="en" href="https://pedrohl45.github.io/?lang=en">
     <link rel="canonical" href="https://pedrohl45.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
@@ -17,12 +20,22 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     
-    <link rel="stylesheet" href="style.css?v=20261106">
+    <link rel="stylesheet" href="style.css?v=20261107">
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'light' && t !== 'dark') {
+                t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
 <body>
 
@@ -35,11 +48,11 @@
             </button>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#habilidades">Arsenal Técnico</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#formacao">Experiência</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#habilidades" data-i18n="nav.skills">Arsenal Técnico</a></li>
+                <li><a href="#projetos" data-i18n="nav.projects">Projetos</a></li>
+                <li><a href="#formacao" data-i18n="nav.experience">Experiência</a></li>
+                <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
             </ul>
         </div>
     </nav>
@@ -47,11 +60,11 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text fade-in">
-                <h1>Opa, eu sou o<br><span class="highlight">Pedro Henrique</span></h1>
-                <h2>Desenvolvedor de Software</h2>
-                <p>Curto construir sistemas completos, do banco de dados e APIs robustas até a interface. Uso Ubuntu no trabalho e Arch Linux em casa (onde criei meu próprio workflow visual) e passo a maior parte do tempo no terminal.</p>
+                <h1 data-i18n="hero.title">Opa, eu sou o<br><span class="highlight">Pedro Henrique</span></h1>
+                <h2 data-i18n="hero.role">Desenvolvedor de Software</h2>
+                <p data-i18n="hero.text">Curto construir sistemas completos, do banco de dados e APIs robustas até a interface. Uso Ubuntu no trabalho e Arch Linux em casa (onde criei meu próprio workflow visual) e passo a maior parte do tempo no terminal.</p>
                 <div class="hero-cta">
-                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <a href="#projetos" class="btn btn-primary" data-i18n="hero.cta">Ver Projetos</a>
                     <div class="social-links-hero">
                         <a href="https://github.com/pedrohl45" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
                         <a href="https://www.linkedin.com/in/pedrohl45/" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
@@ -68,20 +81,20 @@
 
     <section class="sobre" id="sobre">
         <div class="section-container">
-            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <h2 class="section-title fade-in" data-i18n="about.title">Sobre Mim</h2>
             <div class="sobre-content">
                 <div class="sobre-text fade-in">
-                    <p>Estudo <strong>Desenvolvimento de Software</strong> na <strong>Fatec São José dos Campos</strong>.</p>
-                    <p>Me considero um desenvolvedor bem versátil. Apesar do meu foco forte em Backend e integrações de API, também me garanto desenhando Landing Pages, frontends responsivos e customizando interfaces de sistemas operacionais do zero.</p>
-                    <p>No trabalho uso distros baseadas em <strong>Ubuntu</strong> (Kubuntu) e rodo as cargas mais pesadas em máquinas <strong>NVIDIA</strong> acessadas por <strong>SSH</strong>. Em casa meu sistema é o <strong>Arch Linux</strong> (onde fiz o ricing completo do ambiente), e também tenho vivência com <strong>Debian e Linux Mint</strong>, além de dominar interfaces como o <strong>Cinnamon</strong>. Construo bots complexos para Discord (com isolamento de estado, OOP e banco de dados) e faço integrações pesadas de automação.</p>
-                    <p>Fora do código, provavelmente estou ouvindo Post-Punk ou Darkwave e tentando aprender alguma tecnologia nova de madrugada.</p>
-                    <p>Hoje sou <strong>estagiário de desenvolvimento de software na ITNEX</strong>, onde trabalho com aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus e IoT com ESP32. Sigo aberto a conversar sobre vagas júnior.</p>
+                    <p data-i18n="about.p1">Estudo <strong>Desenvolvimento de Software</strong> na <strong>Fatec São José dos Campos</strong>.</p>
+                    <p data-i18n="about.p2">Me considero um desenvolvedor bem versátil. Apesar do meu foco forte em Backend e integrações de API, também me garanto desenhando Landing Pages, frontends responsivos e customizando interfaces de sistemas operacionais do zero.</p>
+                    <p data-i18n="about.p3">No trabalho uso distros baseadas em <strong>Ubuntu</strong> (Kubuntu) e rodo as cargas mais pesadas em máquinas <strong>NVIDIA</strong> acessadas por <strong>SSH</strong>. Em casa meu sistema é o <strong>Arch Linux</strong> (onde fiz o ricing completo do ambiente), e também tenho vivência com <strong>Debian e Linux Mint</strong>, além de dominar interfaces como o <strong>Cinnamon</strong>. Construo bots complexos para Discord (com isolamento de estado, OOP e banco de dados) e faço integrações pesadas de automação.</p>
+                    <p data-i18n="about.p4">Fora do código, provavelmente estou ouvindo Post-Punk ou Darkwave e tentando aprender alguma tecnologia nova de madrugada.</p>
+                    <p data-i18n="about.p5">Hoje sou <strong>estagiário de desenvolvimento de software na ITNEX</strong>, onde trabalho com aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus e IoT com ESP32. Sigo aberto a conversar sobre vagas júnior.</p>
                 </div>
                 <div class="sobre-stats fade-in">
                     <div class="stat-card">
                         <i data-lucide="folder-git-2"></i>
                         <h3>8</h3>
-                        <p>Repositórios</p>
+                        <p data-i18n="about.stat.repos">Repositórios</p>
                     </div>
                     <div class="stat-card">
                         <i data-lucide="terminal-square"></i>
@@ -91,7 +104,7 @@
                     <div class="stat-card">
                         <i data-lucide="graduation-cap"></i>
                         <h3>Fatec SJC</h3>
-                        <p>Graduação</p>
+                        <p data-i18n="about.stat.degree">Graduação</p>
                     </div>
                 </div>
             </div>
@@ -100,34 +113,34 @@
 
     <section class="habilidades" id="habilidades">
         <div class="section-container">
-            <h2 class="section-title fade-in">Arsenal Técnico</h2>
+            <h2 class="section-title fade-in" data-i18n="skills.title">Arsenal Técnico</h2>
             <div class="skills-grid">
                 
                 <div class="skill-category fade-in">
-                    <h3>Linguagens & Core</h3>
+                    <h3 data-i18n="skills.lang">Linguagens & Core</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <i class="devicon-python-plain colored"></i>
+                            <i class="devicon-python-plain"></i>
                             <span>Python</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-typescript-plain colored"></i>
+                            <i class="devicon-typescript-plain"></i>
                             <span>TypeScript</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-bash-plain colored"></i>
+                            <i class="devicon-bash-plain"></i>
                             <span>Shell Script</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-javascript-plain colored"></i>
+                            <i class="devicon-javascript-plain"></i>
                             <span>JavaScript</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-html5-plain colored"></i>
+                            <i class="devicon-html5-plain"></i>
                             <span>HTML5</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-css3-plain colored"></i>
+                            <i class="devicon-css3-plain"></i>
                             <span>CSS3</span>
                         </div>
                     </div>
@@ -137,19 +150,19 @@
                     <h3>Backend & Frameworks</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <i class="devicon-fastapi-plain colored"></i>
+                            <i class="devicon-fastapi-plain"></i>
                             <span>FastAPI</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-flask-original colored"></i>
+                            <i class="devicon-flask-original"></i>
                             <span>Flask</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-nodejs-plain colored"></i>
+                            <i class="devicon-nodejs-plain"></i>
                             <span>Node.js</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-react-original colored"></i>
+                            <i class="devicon-react-original"></i>
                             <span>React</span>
                         </div>
                         <div class="skill-item">
@@ -157,11 +170,11 @@
                             <span>MQTT</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-pandas-original colored"></i>
+                            <i class="devicon-pandas-original"></i>
                             <span>Pandas</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-googlecloud-plain colored"></i>
+                            <i class="devicon-googlecloud-plain"></i>
                             <span>Google APIs</span>
                         </div>
                         <div class="skill-item">
@@ -184,32 +197,32 @@
                 </div>
 
                 <div class="skill-category fade-in">
-                    <h3>Banco de Dados</h3>
+                    <h3 data-i18n="skills.db">Banco de Dados</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <i class="devicon-postgresql-plain colored"></i>
+                            <i class="devicon-postgresql-plain"></i>
                             <span>PostgreSQL</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-mysql-plain colored"></i>
+                            <i class="devicon-mysql-plain"></i>
                             <span>MySQL</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-sqlite-plain colored"></i>
+                            <i class="devicon-sqlite-plain"></i>
                             <span>SQLite</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="skill-category fade-in">
-                    <h3>Sistema & Ambiente</h3>
+                    <h3 data-i18n="skills.system">Sistema & Ambiente</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <i class="devicon-linux-plain colored"></i>
+                            <i class="devicon-linux-plain"></i>
                             <span>Linux</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-ubuntu-plain colored"></i>
+                            <i class="devicon-ubuntu-plain"></i>
                             <span>Ubuntu</span>
                         </div>
                         <div class="skill-item">
@@ -217,23 +230,23 @@
                             <span>SSH</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-docker-plain colored"></i>
+                            <i class="devicon-docker-plain"></i>
                             <span>Docker</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-git-plain colored"></i>
+                            <i class="devicon-git-plain"></i>
                             <span>Git</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-github-original colored"></i>
+                            <i class="devicon-github-original"></i>
                             <span>GitHub</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-vscode-plain colored"></i>
+                            <i class="devicon-vscode-plain"></i>
                             <span>VS Code</span>
                         </div>
                         <div class="skill-item">
-                            <i class="devicon-jira-plain colored"></i>
+                            <i class="devicon-jira-plain"></i>
                             <span>Jira (Agile)</span>
                         </div>
                         <div class="skill-item">
@@ -249,15 +262,15 @@
 
     <section class="projetos" id="projetos">
         <div class="section-container">
-            <h2 class="section-title fade-in">Projetos</h2>
+            <h2 class="section-title fade-in" data-i18n="projects.title">Projetos</h2>
 
-            <h3 class="projects-group-title fade-in">Estágio · ITNEX</h3>
+            <h3 class="projects-group-title fade-in" data-i18n="projects.intern">Estágio · ITNEX</h3>
             <div class="projects-grid">
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>Controle de estoque multidepósito</h3>
-                        <p class="project-desc">Aplicação web para controlar o estoque de um cliente em vários depósitos: movimentações, solicitações, aprovação e separação, com acesso por perfil. Integrada ao ERP Protheus (TOTVS) do cliente.</p>
+                        <h3 data-i18n="p.stock.t">Controle de estoque multidepósito</h3>
+                        <p class="project-desc" data-i18n="p.stock.d">Aplicação web para controlar o estoque de um cliente em vários depósitos: movimentações, solicitações, aprovação e separação, com acesso por perfil. Integrada ao ERP Protheus (TOTVS) do cliente.</p>
                         <div class="project-tags">
                             <span class="tag">TypeScript</span>
                             <span class="tag">React</span>
@@ -266,15 +279,15 @@
                             <span class="tag">Protheus</span>
                         </div>
                         <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> Projeto de estágio · código privado</span>
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
                         </div>
                     </div>
                 </article>
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>Painel de gestão à vista</h3>
-                        <p class="project-desc">Painel para TV que acompanha as 8 etapas do fluxo do produto, com tela de consulta por busca e filtros e acesso por perfil.</p>
+                        <h3 data-i18n="p.panel.t">Painel de gestão à vista</h3>
+                        <p class="project-desc" data-i18n="p.panel.d">Painel para TV que acompanha as 8 etapas do fluxo do produto, com tela de consulta por busca e filtros e acesso por perfil.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Vite</span>
@@ -282,15 +295,15 @@
                             <span class="tag">PostgreSQL</span>
                         </div>
                         <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> Projeto de estágio · código privado</span>
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
                         </div>
                     </div>
                 </article>
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>Projeto interno de IoT</h3>
-                        <p class="project-desc">Dispositivos com ESP32-S3 que se comunicam por Bluetooth LE e enviam dados por MQTT a um backend em Python.</p>
+                        <h3 data-i18n="p.iot.t">Projeto interno de IoT</h3>
+                        <p class="project-desc" data-i18n="p.iot.d">Dispositivos com ESP32-S3 que se comunicam por Bluetooth LE e enviam dados por MQTT a um backend em Python.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">FastAPI</span>
@@ -299,15 +312,15 @@
                             <span class="tag">BLE</span>
                         </div>
                         <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> Projeto de estágio · código privado</span>
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
                         </div>
                     </div>
                 </article>
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>Monitoramento de sensores BLE</h3>
-                        <p class="project-desc">Leitura de temperatura, umidade e bateria de sensores Bluetooth no ESP32-S3, enviada por MQTT a um coletor com SQLite e exibida em painel web.</p>
+                        <h3 data-i18n="p.ble.t">Monitoramento de sensores BLE</h3>
+                        <p class="project-desc" data-i18n="p.ble.d">Leitura de temperatura, umidade e bateria de sensores Bluetooth no ESP32-S3, enviada por MQTT a um coletor com SQLite e exibida em painel web.</p>
                         <div class="project-tags">
                             <span class="tag">C++</span>
                             <span class="tag">MQTT</span>
@@ -315,20 +328,20 @@
                             <span class="tag">Docker</span>
                         </div>
                         <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> Projeto de estágio · código privado</span>
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
                         </div>
                     </div>
                 </article>
 
             </div>
 
-            <h3 class="projects-group-title fade-in">Projetos pessoais e acadêmicos</h3>
+            <h3 class="projects-group-title fade-in" data-i18n="projects.personal">Projetos pessoais e acadêmicos</h3>
             <div class="projects-grid">
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>Automação Fatec: Teams → Google</h3>
-                        <p class="project-desc">Ferramenta de linha de comando em Python que sincroniza materiais e prazos do Microsoft Teams com o Google Drive e o Google Agenda. Preserva a hierarquia de pastas, evita reenvio de arquivos, trata paginação e erros da API e atualiza o evento quando o prazo muda. Autenticação OAuth2, testes com pytest e CI no GitHub Actions.</p>
+                        <h3 data-i18n="p.auto.t">Automação Fatec: Teams → Google</h3>
+                        <p class="project-desc" data-i18n="p.auto.d">Ferramenta de linha de comando em Python que sincroniza materiais e prazos do Microsoft Teams com o Google Drive e o Google Agenda. Preserva a hierarquia de pastas, evita reenvio de arquivos, trata paginação e erros da API e atualiza o evento quando o prazo muda. Autenticação OAuth2, testes com pytest e CI no GitHub Actions.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Graph API</span>
@@ -343,8 +356,8 @@
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>API FATEC: Crédito Inclusivo (BCB)</h3>
-                        <p class="project-desc">Projeto integrado do 1º semestre da FATEC. Aplicação para análise de dados do Banco Central (BACEN), IBGE e Serasa para calcular o "Score de Oportunidade" por região, ajudando na inclusão de crédito. Desenvolvido com metodologias ágeis (Scrum/Jira).</p>
+                        <h3 data-i18n="p.credit.t">API FATEC: Crédito Inclusivo (BCB)</h3>
+                        <p class="project-desc" data-i18n="p.credit.d">Projeto integrado do 1º semestre da FATEC. Aplicação para análise de dados do Banco Central (BACEN), IBGE e Serasa para calcular o "Score de Oportunidade" por região, ajudando na inclusão de crédito. Desenvolvido com metodologias ágeis (Scrum/Jira).</p>
                         <div class="project-tags">
                             <span class="tag">Python/Flask</span>
                             <span class="tag">Data Analysis</span>
@@ -359,7 +372,7 @@
                 <article class="project-card fade-in">
                     <div class="project-content">
                         <h3>TayamaBot</h3>
-                        <p class="project-desc">Bot para Discord + Painel Web SPA criados pra organizar a vida na faculdade. O bot calcula faltas, notas, riscos de DP e gerencia turmas de forma isolada, tudo salvando as informações em um banco relacional MySQL próprio.</p>
+                        <p class="project-desc" data-i18n="p.tayama.d">Bot para Discord + Painel Web SPA criados pra organizar a vida na faculdade. O bot calcula faltas, notas, riscos de DP e gerencia turmas de forma isolada, tudo salvando as informações em um banco relacional MySQL próprio.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">MySQL</span>
@@ -375,8 +388,8 @@
 
                 <article class="project-card fade-in">
                     <div class="project-content">
-                        <h3>YamadaBot & Landing Page</h3>
-                        <p class="project-desc">Um ecossistema completo focado em música para o Discord. Desenvolvi o bot de áudio com yt-dlp e FFmpeg (com isolamento de estado para múltiplos servidores) e programei toda a landing page responsiva que apresenta o projeto.</p>
+                        <h3 data-i18n="p.yamada.t">YamadaBot & Landing Page</h3>
+                        <p class="project-desc" data-i18n="p.yamada.d">Um ecossistema completo focado em música para o Discord. Desenvolvi o bot de áudio com yt-dlp e FFmpeg (com isolamento de estado para múltiplos servidores) e programei toda a landing page responsiva que apresenta o projeto.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">yt-dlp</span>
@@ -392,7 +405,7 @@
                 <article class="project-card fade-in">
                     <div class="project-content">
                         <h3>Arch Linux Ricing & Scripts</h3>
-                        <p class="project-desc">Meu laboratório pessoal onde configurei todo meu sistema Arch Linux do zero. Desenvolvi interfaces gráficas customizadas (Window Managers) e scripts em Shell para automação do meu workflow diário.</p>
+                        <p class="project-desc" data-i18n="p.arch.d">Meu laboratório pessoal onde configurei todo meu sistema Arch Linux do zero. Desenvolvi interfaces gráficas customizadas (Window Managers) e scripts em Shell para automação do meu workflow diário.</p>
                         <div class="project-tags">
                             <span class="tag">Shell/Bash</span>
                             <span class="tag">Linux</span>
@@ -412,40 +425,40 @@
 
     <section class="formacao" id="formacao">
         <div class="section-container">
-            <h2 class="section-title fade-in">Experiência & Formação</h2>
+            <h2 class="section-title fade-in" data-i18n="exp.title">Experiência & Formação</h2>
             <div class="timeline">
 
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">out/2026 – atual</span>
-                        <h3>Estagiário de Desenvolvimento de Software</h3>
+                        <span class="timeline-date" data-i18n="exp.intern.date">out/2026 – atual</span>
+                        <h3 data-i18n="exp.intern.role">Estagiário de Desenvolvimento de Software</h3>
                         <h4>ITNEX</h4>
-                        <p>Aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus (TOTVS) e projetos de IoT com ESP32 e MQTT, em ambientes com Docker. Desenvolvimento em Ubuntu, com execução remota em máquinas NVIDIA via SSH.</p>
+                        <p data-i18n="exp.intern.desc">Aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Protheus (TOTVS) e projetos de IoT com ESP32 e MQTT, em ambientes com Docker. Desenvolvimento em Ubuntu, com execução remota em máquinas NVIDIA via SSH.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Cursando</span>
-                        <h3>Desenvolvimento de Software Multiplataforma</h3>
+                        <span class="timeline-date" data-i18n="exp.course.date">Cursando</span>
+                        <h3 data-i18n="exp.course.title">Desenvolvimento de Software Multiplataforma</h3>
                         <h4>Fatec São José dos Campos (Prof. Jessen Vidal)</h4>
-                        <p>Estudando programação focada no mercado, cobrindo backend, frontend, banco de dados e metodologias ágeis de forma prática.</p>
+                        <p data-i18n="exp.course.desc">Estudando programação focada no mercado, cobrindo backend, frontend, banco de dados e metodologias ágeis de forma prática.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Projetos Acadêmicos</span>
-                        <h3>Aprendizagem por Projetos Integrados (API)</h3>
+                        <span class="timeline-date" data-i18n="exp.api.date">Projetos Acadêmicos</span>
+                        <h3 data-i18n="exp.api.title">Aprendizagem por Projetos Integrados (API)</h3>
                         <h4>Fatec SJC</h4>
-                        <p>Projetos desenvolvidos em grupo todo semestre, resolvendo problemas reais para clientes parceiros da faculdade, com Scrum e Jira.</p>
-                        <p class="timeline-project"><strong>1º semestre (2026) · Negado pelo Banco: Crédito Inclusivo com Dados do BCB.</strong> Site que identifica regiões com alto potencial de crédito, mas sem acesso ao sistema financeiro tradicional. A partir de dados públicos do Banco Central (BCB/BACEN), IBGE e Serasa, calcula um "Score de Oportunidade" por região para que analistas de crédito comparem territórios com filtros e indicadores. Análise de dados no Google Colab e site em Python (Flask), HTML e CSS.</p>
+                        <p data-i18n="exp.api.desc">Projetos desenvolvidos em grupo todo semestre, resolvendo problemas reais para clientes parceiros da faculdade, com Scrum e Jira.</p>
+                        <p class="timeline-project" data-i18n="exp.api.project"><strong>1º semestre (2026) · Negado pelo Banco: Crédito Inclusivo com Dados do BCB.</strong> Site que identifica regiões com alto potencial de crédito, mas sem acesso ao sistema financeiro tradicional. A partir de dados públicos do Banco Central (BCB/BACEN), IBGE e Serasa, calcula um "Score de Oportunidade" por região para que analistas de crédito comparem territórios com filtros e indicadores. Análise de dados no Google Colab e site em Python (Flask), HTML e CSS.</p>
                         <div class="project-tags">
                             <span class="tag">Python/Flask</span>
-                            <span class="tag">Análise de dados</span>
+                            <span class="tag" data-i18n="tag.analysis">Análise de dados</span>
                             <span class="tag">Google Colab</span>
                             <span class="tag">Scrum/Jira</span>
                         </div>
@@ -464,8 +477,8 @@
         <div class="section-container">
             <div class="contato-wrapper fade-in">
                 <div class="contato-info" style="text-align: center; margin: 0 auto; max-width: 600px;">
-                    <h2 class="section-title" >Contato</h2>
-                    <p style="margin-bottom: 3rem;">Se quiser trocar uma ideia, falar sobre código ou oportunidades, me dá um toque por aqui:</p>
+                    <h2 class="section-title"  data-i18n="contact.title">Contato</h2>
+                    <p style="margin-bottom: 3rem;" data-i18n="contact.text">Se quiser trocar uma ideia, falar sobre código ou oportunidades, me dá um toque por aqui:</p>
                     
                     <div class="contact-links" style="align-items: center;">
                         <a href="mailto:pedrocabralleite@gmail.com" class="contact-card" style="width: 100%; max-width: 400px; justify-content: flex-start;">
@@ -495,13 +508,23 @@
         </div>
     </section>
 
+    <div class="site-controls">
+        <button class="control-btn" id="theme-toggle" type="button" aria-label="Mudar para o tema escuro" title="Mudar para o tema escuro">
+            <span class="icon-moon"><i data-lucide="moon"></i></span>
+            <span class="icon-sun"><i data-lucide="sun"></i></span>
+        </button>
+        <button class="control-btn" id="lang-toggle" type="button" aria-label="View in English" title="View in English">EN</button>
+    </div>
+
     <footer>
         <div class="footer-content">
-            <p>Feito por Pedro Henrique Cabral Leite</p>
+            <span class="footer-ornament" aria-hidden="true">♱ ─── ♱</span>
+            <p data-i18n="footer.made">Feito por Pedro Henrique Cabral Leite</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="i18n.js?v=20261107"></script>
+    <script src="script.js?v=20261107"></script>
     <script>
         lucide.createIcons();
     </script>
