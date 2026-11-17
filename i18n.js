@@ -33,6 +33,7 @@
         'projects.intern': 'Internship · ITNEX',
         'projects.personal': 'Personal & academic projects',
         'projects.private': 'Internship project · private code',
+        'projects.case': 'Case study',
         'p.sec.t': 'Standard DevSecOps pipeline',
         'p.sec.d': 'Template repository with CI/CD and security ready so every company project starts right: secret, vulnerability and code scanning, non-root Docker images and automatic dependency updates. Applied to 9 repositories, and CI time dropped from 240 s to 139 s.',
         'p.stock.t': 'Multi-warehouse inventory control',
@@ -114,6 +115,9 @@
             el.innerHTML = lang === 'en' && en[key] ? en[key] : pt.get(el);
         });
         const m = meta[lang];
+        document.querySelectorAll('[data-case-href]').forEach(a => {
+            a.href = lang === 'en' ? a.dataset.caseHrefEn : a.dataset.caseHref;
+        });
         document.documentElement.lang = m.htmlLang;
         document.title = m.title;
         document.querySelector('meta[name="description"]').content = m.description;

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrando um app com um ERP que não tem idempotência | Pedro Henrique Cabral Leite</title>
+<meta name="description" content="Estudo de caso: como integrei um app de estoque a um ERP da TOTVS sem idempotência, classificando respostas, evitando duplicidade e protegendo a fila de envio.">
+<meta name="theme-color" content="#f3eee8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17120f" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="pt-BR" href="https://pedrohl45.github.io/casos/integracao-erp.html">
+<link rel="alternate" hreflang="en" href="https://pedrohl45.github.io/casos/integracao-erp.en.html">
+<link rel="canonical" href="https://pedrohl45.github.io/casos/integracao-erp.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Integrando um app com um ERP que não tem idempotência">
+<meta property="og:description" content="Estudo de caso: como integrei um app de estoque a um ERP da TOTVS sem idempotência, classificando respostas, evitando duplicidade e protegendo a fila de envio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20261107">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<style>
+.case{max-width:46rem;margin:0 auto;padding:6.5rem 1.25rem 4rem}
+.case-top{position:fixed;top:0;left:0;right:0;z-index:10;background:var(--nav-scrolled);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-color)}
+.case-top div{max-width:46rem;margin:0 auto;padding:.9rem 1.25rem;display:flex;justify-content:space-between;align-items:center}
+.case-top a{color:var(--text-muted);text-decoration:none;font-weight:500}
+.case-top a:hover{color:var(--primary)}
+.case-top .logo{font-family:var(--font-mono,monospace);font-weight:700;color:var(--text-main)}
+.case-top .logo span{color:var(--primary)}
+.case h1{font-family:var(--font-display);color:var(--heading);font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.2;margin-bottom:.6rem}
+.case .meta{color:var(--text-muted);font-size:.92rem;margin-bottom:2.2rem}
+.case h2{font-family:var(--font-display);color:var(--heading);font-size:1.5rem;margin:2.2rem 0 .7rem;padding-bottom:.4rem;border-bottom:1px solid var(--border-color)}
+.case h3{color:var(--text-main);font-size:1.08rem;margin:1.5rem 0 .4rem}
+.case p,.case li{color:var(--text-main);line-height:1.75}
+.case ul{margin:.4rem 0 .6rem 1.2rem}
+.case li{margin:.3rem 0}
+.case code{font-family:var(--font-mono,monospace);font-size:.88em;background:var(--primary-soft);padding:.1em .4em;border-radius:.25rem}
+.case .foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--border-color);color:var(--text-muted);font-size:.92rem}
+</style>
+</head>
+<body>
+<header class="case-top"><div>
+<a class="logo" href="../">pedro<span>hl45</span></a>
+<span><a href="../#projetos">← Projetos</a> &nbsp;·&nbsp; <a href="integracao-erp.en.html" hreflang="en">EN</a></span>
+</div></header>
+<main class="case">
+<h1>Integrando um app com um ERP que não tem idempotência</h1>
+<p class="meta">Estudo de caso · projeto de estágio na ITNEX · TypeScript, Node.js, PostgreSQL, Docker</p>
+<h2>Contexto</h2>
+<p>Um app web de controle de estoque em vários depósitos precisava registrar cada movimentação (reserva, separação, retorno) no ERP da TOTVS do cliente, por API REST. Cada ação do usuário no app vira uma chamada no ERP.</p>
+<h2>O problema</h2>
+<p>Três coisas deixavam a integração perigosa:</p>
+<ul><li><strong>O ERP não tem idempotência.</strong> Se uma chamada dá timeout, eu não sei se ele efetivou ou não. Repetir pode duplicar a movimentação, e não repetir pode perdê-la.</li><li><strong>O status HTTP não conta a história toda.</strong> Erro de negócio chega com HTTP 200 e um campo <code>error</code> no corpo.</li><li><strong>Dado incompleto passa no app e quebra no ERP</strong>, como item sem código numérico, quantidade zero ou remessa sem projeto.</li></ul>
+<h2>O que decidi</h2>
+<h3>1. Classificar toda resposta em 4 resultados</h3>
+<p>Olho primeiro o status HTTP e depois o corpo:</p>
+<ul><li><code>confirmado</code>: 2xx sem erro no corpo.</li><li><code>rejeitado</code>: erro de negócio. Não repete e desfaz a reserva.</li><li><code>falha</code>: problema de infraestrutura (401, 403, 404, 429, 5xx, conexão recusada). É o único caso que repete, com backoff exponencial, jitter de ±20% e respeitando o <code>Retry-After</code>.</li><li><code>divergente</code>: resultado incerto.</li></ul>
+<h3>2. Na dúvida, parar e chamar uma pessoa</h3>
+<p>Timeout, corpo ilegível ou redirect vão para <code>divergente</code> e <strong>nunca são repetidos sozinhos</strong>, porque o ERP pode ter efetivado. Só um humano reenvia. Prefiro um movimento parado e visível a um duplicado silencioso.</p>
+<h3>3. Marca única em cada movimento</h3>
+<p>O campo de observações sempre leva um identificador do movimento. Se algo duplicar ou ficar incerto, dá para localizar no ERP pela marca e conciliar.</p>
+<h3>4. Validar antes de chamar a API</h3>
+<p>A tradução do app para o contrato do ERP é uma camada pura, sem I/O. Se o dado é inválido (sem projeto, item sem código numérico, quantidade ≤ 0), o movimento vira <code>divergente</code> sem nem chamar o ERP.</p>
+<h3>5. Uma fila que se protege</h3>
+<ul><li>Envio em lotes de 20, com <em>lease</em> para dois processos não pegarem o mesmo lote.</li><li>Após 3 falhas seguidas de infraestrutura, o ciclo pausa por 60 s, em vez de gastar tentativa dos movimentos que não têm culpa.</li><li>Máximo de 10 tentativas; acima disso o movimento sai da fila e vai para intervenção humana.</li><li>Concorrência configurável (de 1 a 10, padrão 1), para começar devagar.</li></ul>
+<h3>6. Segurança e modos de operação</h3>
+<p>As credenciais só saem por HTTPS (ou localhost), sem seguir redirect. O app roda em três modos: <code>simulado</code>, <code>api</code> e <code>desligado</code>. Um valor de configuração inválido cai em <code>desligado</code>, e nunca em <code>simulado</code>, para um erro de config não parecer sucesso.</p>
+<h2>Resultado</h2>
+<ul><li>O conhecimento sobre o ERP (nomes de campos, códigos, formato do item) fica <strong>isolado em um único arquivo puro</strong>. Se o ERP muda, mexo num lugar só.</li><li>Esse contrato tem <strong>26 testes automatizados</strong> (validações, limites, leitura de respostas com entrada inválida). Quebrei uma regra de propósito para conferir que o teste falha.</li><li>A integração está em <strong>ambiente de homologação</strong>, ainda não em produção.</li></ul>
+<h2>O que aprendi</h2>
+<ul><li>Quando o sistema do outro lado não oferece garantia, a garantia vira responsabilidade minha, e o desenho precisa assumir a incerteza em vez de escondê-la.</li><li>Deixar explícito o que é suposição (marquei no código o que eu havia inferido de exemplos) evita tratar palpite como contrato.</li><li>Teste de contrato é onde mais compensa começar quando o projeto não tinha nenhum.</li></ul>
+<p class="foot"><a href="../#projetos">← Projetos</a></p>
+</main>
+</body>
+</html>
