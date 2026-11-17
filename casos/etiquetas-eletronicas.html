@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do preço no ERP até a etiqueta: só libera no caixa depois do ACK | Pedro Henrique Cabral Leite</title>
+<meta name="description" content="Estudo de caso: plataforma de etiquetas eletrônicas de gôndola com gateway ESP32 próprio, MQTT e backend em FastAPI, liberando o preço no PDV só após a confirmação da etiqueta.">
+<meta name="theme-color" content="#f3eee8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17120f" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="pt-BR" href="https://pedrohl45.github.io/casos/etiquetas-eletronicas.html">
+<link rel="alternate" hreflang="en" href="https://pedrohl45.github.io/casos/etiquetas-eletronicas.en.html">
+<link rel="canonical" href="https://pedrohl45.github.io/casos/etiquetas-eletronicas.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do preço no ERP até a etiqueta: só libera no caixa depois do ACK">
+<meta property="og:description" content="Estudo de caso: plataforma de etiquetas eletrônicas de gôndola com gateway ESP32 próprio, MQTT e backend em FastAPI, liberando o preço no PDV só após a confirmação da etiqueta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20261107">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<style>
+.case{max-width:46rem;margin:0 auto;padding:6.5rem 1.25rem 4rem}
+.case-top{position:fixed;top:0;left:0;right:0;z-index:10;background:var(--nav-scrolled);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-color)}
+.case-top div{max-width:46rem;margin:0 auto;padding:.9rem 1.25rem;display:flex;justify-content:space-between;align-items:center}
+.case-top a{color:var(--text-muted);text-decoration:none;font-weight:500}
+.case-top a:hover{color:var(--primary)}
+.case-top .logo{font-family:var(--font-mono,monospace);font-weight:700;color:var(--text-main)}
+.case-top .logo span{color:var(--primary)}
+.case h1{font-family:var(--font-display);color:var(--heading);font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.2;margin-bottom:.6rem}
+.case .meta{color:var(--text-muted);font-size:.92rem;margin-bottom:2.2rem}
+.case h2{font-family:var(--font-display);color:var(--heading);font-size:1.5rem;margin:2.2rem 0 .7rem;padding-bottom:.4rem;border-bottom:1px solid var(--border-color)}
+.case h3{color:var(--text-main);font-size:1.08rem;margin:1.5rem 0 .4rem}
+.case p,.case li{color:var(--text-main);line-height:1.75}
+.case ul{margin:.4rem 0 .6rem 1.2rem}
+.case li{margin:.3rem 0}
+.case code{font-family:var(--font-mono,monospace);font-size:.88em;background:var(--primary-soft);padding:.1em .4em;border-radius:.25rem}
+.case .foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--border-color);color:var(--text-muted);font-size:.92rem}
+</style>
+</head>
+<body>
+<header class="case-top"><div>
+<a class="logo" href="../">pedro<span>hl45</span></a>
+<span><a href="../#projetos">← Projetos</a> &nbsp;·&nbsp; <a href="etiquetas-eletronicas.en.html" hreflang="en">EN</a></span>
+</div></header>
+<main class="case">
+<h1>Do preço no ERP até a etiqueta: só libera no caixa depois do ACK</h1>
+<p class="meta">Estudo de caso · projeto de estágio na ITNEX · Python, FastAPI, MQTT, ESP32-S3, Bluetooth LE</p>
+<h2>Contexto</h2>
+<p>Etiquetas eletrônicas (e-paper) de gôndola mostram o preço do produto. O preço vem do ERP, e a etiqueta recebe a imagem por Bluetooth LE, através de um gateway. Eu trabalhei numa plataforma própria para fazer esse caminho inteiro, sem depender da nuvem do fabricante.</p>
+<h2>O problema</h2>
+<ul><li><strong>Preço da etiqueta e preço do caixa precisam bater.</strong> Se o caixa cobra o preço novo antes de a etiqueta mostrar, o cliente vê um valor e paga outro.</li><li><strong>A etiqueta é um dispositivo lento e pouco confiável</strong>: a atualização por BLE pode falhar ou demorar, e não existe garantia de entrega.</li><li><strong>Dá para testar pouca coisa com hardware real</strong>, que é lento, escasso e compartilhado com outros projetos.</li></ul>
+<h2>O que decidi</h2>
+<h3>1. O aumento só vale no caixa depois do ACK da etiqueta</h3>
+<p>O backend recebe os preços do ERP, renderiza a imagem, envia pela fila e só libera o preço no ponto de venda quando a etiqueta confirma que recebeu. Enquanto não há confirmação, o caixa continua com o preço antigo, que é o mesmo que a etiqueta ainda mostra.</p>
+<h3>2. Gateway e broker próprios</h3>
+<p>Um ESP32-S3 faz o papel de gateway BLE e fala MQTT com um broker que eu controlo. O fluxo não depende de um serviço de terceiros no meio, e dá para observar cada mensagem.</p>
+<h3>3. Separar em camadas pequenas</h3>
+<ul><li><strong>Backend</strong> (FastAPI + MQTT): preços do ERP, fila de envio e liberação no PDV.</li><li><strong>Renderizador:</strong> transforma a imagem nos bytes exatos do painel e-paper.</li><li><strong>Driver:</strong> comandos do renderizador até o gateway.</li><li><strong>Gateway:</strong> o ESP32 que conversa com as etiquetas por BLE.</li></ul>
+<h3>4. Um simulador do gateway para testar ponta a ponta</h3>
+<p>Escrevi um simulador que responde como o gateway, com um broker local. O fluxo completo (preço, imagem, envio, ACK, liberação) roda sem etiqueta na mão, e dá para repetir o teste quantas vezes for preciso.</p>
+<h3>5. Medir antes de decidir</h3>
+<p>Antes de definir como e quando conectar nas etiquetas, medi na bancada o comportamento da conexão. A decisão saiu de medição, e não de suposição.</p>
+<h2>Resultado</h2>
+<ul><li>Um fluxo completo, do ERP à etiqueta, com a liberação do preço condicionada à confirmação.</li><li>Cada camada pode ser testada e trocada sozinha, e o simulador permite testar o ciclo inteiro sem hardware.</li><li>O projeto está em <strong>fase de bancada</strong>, ainda não em produção.</li></ul>
+<h2>O que aprendi</h2>
+<ul><li>Com um dispositivo sem garantia de entrega, a confirmação precisa fazer parte do desenho. Não dá para presumir que mandou e chegou.</li><li>Um simulador paga o seu custo cedo: o tempo de testar cai e o hardware deixa de ser o gargalo.</li><li>Medir na bancada evita decisões bonitas no papel que não funcionam no dispositivo real.</li></ul>
+<p class="foot"><a href="../#projetos">← Projetos</a></p>
+</main>
+</body>
+</html>
