@@ -19,7 +19,7 @@
         'about.p2': 'I consider myself a versatile developer. My main focus is Backend and API integrations, but I also build landing pages, responsive frontends and customize operating system interfaces.',
         'about.p3': 'At work I use <strong>Ubuntu</strong>-based distros (Kubuntu) and run the heaviest workloads on <strong>NVIDIA</strong> machines over <strong>SSH</strong>. At home my system is <strong>Arch Linux</strong> (where I fully riced my environment), and I also have experience with <strong>Debian and Linux Mint</strong> and desktop environments like <strong>Cinnamon</strong>. I build complex Discord bots (with state isolation, OOP and databases) and heavy automation integrations.',
         'about.p4': 'Away from code, I\'m probably listening to Post-Punk or Darkwave and trying to learn some new technology late at night.',
-        'about.p5': 'I\'m currently a <strong>software development intern at ITNEX</strong>, working on web apps with React and TypeScript, APIs in Node.js and Python, integration with the Protheus ERP, IoT with ESP32 and pipeline security (Gitleaks, Trivy and Semgrep). I\'m open to talking about junior roles.',
+        'about.p5': 'I\'m currently a <strong>software development intern at ITNEX</strong>, working on web apps with React and TypeScript, APIs in Node.js and Python, integration with the Protheus ERP, IoT with ESP32 and DevOps/DevSecOps, with CI/CD and security scans (Gitleaks, Trivy and Semgrep). I\'m open to talking about junior roles.',
         'about.stat.repos': 'Repositories',
         'about.stat.degree': 'Degree',
 
@@ -54,7 +54,7 @@
         'exp.title': 'Experience & Education',
         'exp.intern.date': 'Oct 2026 – present',
         'exp.intern.role': 'Software Development Intern',
-        'exp.intern.desc': 'Web applications with React and TypeScript, APIs in Node.js and Python, integration with the Protheus ERP (TOTVS) and IoT projects with ESP32 and MQTT, in Docker environments, and CI pipelines with Gitleaks, Trivy and Semgrep. Development on Ubuntu, with remote execution on NVIDIA machines over SSH.',
+        'exp.intern.desc': 'Web applications with React and TypeScript, APIs in Node.js and Python, integration with the Protheus ERP (TOTVS) and IoT projects with ESP32 and MQTT, in Docker environments, and CI/CD pipelines (DevOps/DevSecOps) with Gitleaks, Trivy and Semgrep. Development on Ubuntu, with remote execution on NVIDIA machines over SSH.',
         'exp.course.date': 'In progress',
         'exp.course.title': 'Multiplatform Software Development',
         'exp.course.desc': 'Market-focused programming studies covering backend, frontend, databases and agile methods in a hands-on way.',
