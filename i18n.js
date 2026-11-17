@@ -11,7 +11,7 @@
 
         'hero.title': 'Hey, I\'m<br><span class="highlight">Pedro Henrique</span>',
         'hero.role': 'Software Developer',
-        'hero.text': 'I enjoy building complete systems, from the database and robust APIs to the interface. I use Ubuntu at work and Arch Linux at home (where I built my own visual workflow), and I spend most of my time in the terminal.',
+        'hero.text': 'I enjoy building complete systems, from the database and robust APIs to the interface. I also look after pipeline security: CI/CD, automatic scans and non-root containers. I use Ubuntu at work and Arch Linux at home (where I built my own visual workflow), and I spend most of my time in the terminal.',
         'hero.cta': 'View Projects',
 
         'about.title': 'About Me',
@@ -33,6 +33,8 @@
         'projects.intern': 'Internship · ITNEX',
         'projects.personal': 'Personal & academic projects',
         'projects.private': 'Internship project · private code',
+        'p.sec.t': 'Standard DevSecOps pipeline',
+        'p.sec.d': 'Template repository with CI/CD and security ready so every company project starts right: secret, vulnerability and code scanning, non-root Docker images and automatic dependency updates. Applied to 9 repositories, and CI time dropped from 240 s to 139 s.',
         'p.stock.t': 'Multi-warehouse inventory control',
         'p.stock.d': 'Web application to manage a client\'s inventory across multiple warehouses: stock movements, requests, approval and picking, with role-based access. Integrated with the client\'s Protheus ERP (TOTVS).',
         'p.panel.t': 'Visual management dashboard',
