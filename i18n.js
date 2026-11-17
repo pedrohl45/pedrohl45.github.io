@@ -12,7 +12,6 @@
         'hero.title': 'Hey, I\'m<br><span class="highlight">Pedro Henrique</span>',
         'hero.role': 'Software Developer',
         'hero.text': 'I enjoy building complete systems, from the database to the interface. My focus is backend, API integration and pipeline security (CI/CD, automatic scans and non-root containers).',
-        'hero.open': 'Open to junior backend roles',
         'hero.cta': 'View Projects',
 
         'about.title': 'About Me',
@@ -20,7 +19,7 @@
         'about.p2': 'My focus is <strong>backend and API integration</strong>, with security in the pipeline. I also build frontends (React) and landing pages when a project needs them.',
         'about.p3': 'At work I use <strong>Ubuntu</strong> (Kubuntu) and run the heaviest workloads on <strong>NVIDIA</strong> machines over <strong>SSH</strong>. At home I use <strong>Arch Linux</strong>, where I build my environment from scratch. I also build Discord bots, with per-server state isolation and a database.',
         'about.p4': 'Away from code, I\'m probably listening to Post-Punk or Darkwave and trying to learn some new technology late at night.',
-        'about.p5': 'I\'m currently a <strong>software development intern at ITNEX</strong>, working on web apps with React and TypeScript, APIs in Node.js and Python, integration with the Datasul ERP, IoT with ESP32 and DevOps/DevSecOps, with CI/CD and security scans (Gitleaks, Trivy and Semgrep). I\'m open to talking about junior roles.',
+        'about.p5': 'I\'m currently a <strong>software development intern at ITNEX</strong>, working on web apps with React and TypeScript, APIs in Node.js and Python, integration with the Datasul ERP, IoT with ESP32 and DevOps/DevSecOps, with CI/CD and security scans (Gitleaks, Trivy and Semgrep).',
         'about.stat.repos': 'Repositories with a DevSecOps pipeline',
         'about.stat.ci': 'CI time (240 s → 139 s)',
         'about.stat.cases': 'Published case studies',
@@ -69,7 +68,7 @@
         'exp.api.project': '<strong>1st semester (2026) · AvoCredit.</strong> Web system that combines public data (BCB, IBGE, SPA and Data Senado) into a credit potential indicator by region and state. Details are in the project card.',
 
         'contact.title': 'Contact',
-        'contact.text': 'If you want to chat about code or opportunities, reach out here:',
+        'contact.text': 'If you want to chat about code or projects, reach out here:',
         'footer.made': 'Made by Pedro Henrique Cabral Leite'
     };
 
