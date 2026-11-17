@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Integrando um app com um ERP que não tem idempotência | Pedro Henrique Cabral Leite</title>
-<meta name="description" content="Estudo de caso: como integrei um app de estoque a um ERP da TOTVS sem idempotência, classificando respostas, evitando duplicidade e protegendo a fila de envio.">
+<meta name="description" content="Estudo de caso: como integrei um app de estoque a um ERP Datasul (TOTVS) sem idempotência, classificando respostas, evitando duplicidade e protegendo a fila de envio.">
 <meta name="theme-color" content="#f3eee8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#17120f" media="(prefers-color-scheme: dark)">
 <link rel="alternate" hreflang="pt-BR" href="https://pedrohl45.github.io/casos/integracao-erp.html">
@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://pedrohl45.github.io/casos/integracao-erp.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Integrando um app com um ERP que não tem idempotência">
-<meta property="og:description" content="Estudo de caso: como integrei um app de estoque a um ERP da TOTVS sem idempotência, classificando respostas, evitando duplicidade e protegendo a fila de envio.">
+<meta property="og:description" content="Estudo de caso: como integrei um app de estoque a um ERP Datasul (TOTVS) sem idempotência, classificando respostas, evitando duplicidade e protegendo a fila de envio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
 <h1>Integrando um app com um ERP que não tem idempotência</h1>
 <p class="meta">Estudo de caso · projeto de estágio na ITNEX · TypeScript, Node.js, PostgreSQL, Docker</p>
 <h2>Contexto</h2>
-<p>Um app web de controle de estoque em vários depósitos precisava registrar cada movimentação (reserva, separação, retorno) no ERP da TOTVS do cliente, por API REST. Cada ação do usuário no app vira uma chamada no ERP.</p>
+<p>Um app web de controle de estoque em vários depósitos precisava registrar cada movimentação (reserva, separação, retorno) no ERP Datasul (TOTVS) do cliente, por API REST. Cada ação do usuário no app vira uma chamada no ERP.</p>
 <h2>O problema</h2>
 <p>Três coisas deixavam a integração perigosa:</p>
 <ul><li><strong>O ERP não tem idempotência.</strong> Se uma chamada dá timeout, eu não sei se ele efetivou ou não. Repetir pode duplicar a movimentação, e não repetir pode perdê-la.</li><li><strong>O status HTTP não conta a história toda.</strong> Erro de negócio chega com HTTP 200 e um campo <code>error</code> no corpo.</li><li><strong>Dado incompleto passa no app e quebra no ERP</strong>, como item sem código numérico, quantidade zero ou remessa sem projeto.</li></ul>

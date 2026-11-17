@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Integrating an app with an ERP that has no idempotency | Pedro Henrique Cabral Leite</title>
-<meta name="description" content="Case study: how I integrated an inventory app with a TOTVS ERP that has no idempotency, classifying responses, avoiding duplicates and protecting the send queue.">
+<meta name="description" content="Case study: how I integrated an inventory app with a TOTVS Datasul ERP that has no idempotency, classifying responses, avoiding duplicates and protecting the send queue.">
 <meta name="theme-color" content="#f3eee8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#17120f" media="(prefers-color-scheme: dark)">
 <link rel="alternate" hreflang="pt-BR" href="https://pedrohl45.github.io/casos/integracao-erp.html">
@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://pedrohl45.github.io/casos/integracao-erp.en.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Integrating an app with an ERP that has no idempotency">
-<meta property="og:description" content="Case study: how I integrated an inventory app with a TOTVS ERP that has no idempotency, classifying responses, avoiding duplicates and protecting the send queue.">
+<meta property="og:description" content="Case study: how I integrated an inventory app with a TOTVS Datasul ERP that has no idempotency, classifying responses, avoiding duplicates and protecting the send queue.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
 <h1>Integrating an app with an ERP that has no idempotency</h1>
 <p class="meta">Case study · internship project at ITNEX · TypeScript, Node.js, PostgreSQL, Docker</p>
 <h2>Context</h2>
-<p>A multi-warehouse inventory web app had to record every stock movement (reservation, picking, return) in the client's TOTVS ERP through a REST API. Each user action in the app becomes a call to the ERP.</p>
+<p>A multi-warehouse inventory web app had to record every stock movement (reservation, picking, return) in the client's TOTVS Datasul ERP through a REST API. Each user action in the app becomes a call to the ERP.</p>
 <h2>The problem</h2>
 <p>Three things made the integration risky:</p>
 <ul><li><strong>The ERP has no idempotency.</strong> If a call times out, I can't tell whether it went through. Retrying may duplicate the movement, and not retrying may lose it.</li><li><strong>The HTTP status doesn't tell the whole story.</strong> Business errors arrive as HTTP 200 with an <code>error</code> field in the body.</li><li><strong>Incomplete data passes in the app and breaks in the ERP</strong>, such as an item without a numeric code, zero quantity or a shipment without a project.</li></ul>
