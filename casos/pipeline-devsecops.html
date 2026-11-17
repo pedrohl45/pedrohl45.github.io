@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline DevSecOps: segurança que reprova o build | Pedro Henrique Cabral Leite</title>
+<meta name="description" content="Estudo de caso: como montei um pipeline de CI/CD com Gitleaks, Trivy e Semgrep, e por que a imagem escaneada é a mesma que vai para produção.">
+<meta name="theme-color" content="#f3eee8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17120f" media="(prefers-color-scheme: dark)">
+<link rel="alternate" hreflang="pt-BR" href="https://pedrohl45.github.io/casos/pipeline-devsecops.html">
+<link rel="alternate" hreflang="en" href="https://pedrohl45.github.io/casos/pipeline-devsecops.en.html">
+<link rel="canonical" href="https://pedrohl45.github.io/casos/pipeline-devsecops.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pipeline DevSecOps: segurança que reprova o build">
+<meta property="og:description" content="Estudo de caso: como montei um pipeline de CI/CD com Gitleaks, Trivy e Semgrep, e por que a imagem escaneada é a mesma que vai para produção.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20261107">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<style>
+.case{max-width:46rem;margin:0 auto;padding:6.5rem 1.25rem 4rem}
+.case-top{position:fixed;top:0;left:0;right:0;z-index:10;background:var(--nav-scrolled);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-color)}
+.case-top div{max-width:46rem;margin:0 auto;padding:.9rem 1.25rem;display:flex;justify-content:space-between;align-items:center}
+.case-top a{color:var(--text-muted);text-decoration:none;font-weight:500}
+.case-top a:hover{color:var(--primary)}
+.case-top .logo{font-family:var(--font-mono,monospace);font-weight:700;color:var(--text-main)}
+.case-top .logo span{color:var(--primary)}
+.case h1{font-family:var(--font-display);color:var(--heading);font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.2;margin-bottom:.6rem}
+.case .meta{color:var(--text-muted);font-size:.92rem;margin-bottom:2.2rem}
+.case h2{font-family:var(--font-display);color:var(--heading);font-size:1.5rem;margin:2.2rem 0 .7rem;padding-bottom:.4rem;border-bottom:1px solid var(--border-color)}
+.case h3{color:var(--text-main);font-size:1.08rem;margin:1.5rem 0 .4rem}
+.case p,.case li{color:var(--text-main);line-height:1.75}
+.case ul{margin:.4rem 0 .6rem 1.2rem}
+.case li{margin:.3rem 0}
+.case code{font-family:var(--font-mono,monospace);font-size:.88em;background:var(--primary-soft);padding:.1em .4em;border-radius:.25rem}
+.case .foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--border-color);color:var(--text-muted);font-size:.92rem}
+</style>
+</head>
+<body>
+<header class="case-top"><div>
+<a class="logo" href="../">pedro<span>hl45</span></a>
+<span><a href="../#projetos">← Projetos</a> &nbsp;·&nbsp; <a href="pipeline-devsecops.en.html" hreflang="en">EN</a></span>
+</div></header>
+<main class="case">
+<h1>Pipeline DevSecOps: segurança que reprova o build</h1>
+<p class="meta">Estudo de caso · ITNEX · GitHub Actions, Docker, Gitleaks, Trivy, Semgrep</p>
+<h2>Contexto</h2>
+<p>Cada repositório novo da empresa nascia sem padrão: CI diferente em cada um, nenhuma verificação de segurança e imagens Docker rodando como root. Montei um repositório-modelo com CI/CD e segurança prontos, e apliquei o padrão em 9 repositórios.</p>
+<h2>O problema</h2>
+<ul><li><strong>Segurança como etapa opcional não acontece.</strong> Se o scan não reprova o build, ninguém olha.</li><li><strong>A imagem que vai para produção podia não ser a que foi testada</strong>, se o release refizesse o build.</li><li><strong>Ferramentas baixadas sem conferência</strong> são um risco: se alguém trocar o binário no meio do caminho, o pipeline roda código estranho.</li></ul>
+<h2>O que decidi</h2>
+<h3>1. Três verificações que reprovam o build</h3>
+<ul><li><strong>Gitleaks:</strong> segredo em qualquer commit do histórico (não só no último).</li><li><strong>Trivy:</strong> CVE alta ou crítica nas dependências e na imagem, e Dockerfile sem <code>USER</code>.</li><li><strong>Semgrep:</strong> padrões inseguros no código.</li></ul>
+<h3>2. A imagem escaneada é a que sobe</h3>
+<p>O build é local, o Trivy escaneia essa imagem e só depois ela é publicada. No release, a tag <code>vX.Y.Z</code> apenas aponta para a mesma imagem, sem rebuild. Se o commit da tag nunca passou pelo CI, o release falha com uma mensagem clara.</p>
+<h3>3. Ferramentas com versão fixa e checksum</h3>
+<p>Gitleaks e Trivy são baixados de uma versão específica, e o SHA-256 é conferido antes de usar (o valor vem do arquivo de checksums oficial). As Actions ficam fixadas pelo SHA do commit, e o Dependabot atualiza.</p>
+<h3>4. <code>--ignore-unfixed</code> no Trivy</h3>
+<p>Reprovo CVE alta/crítica que já tem correção. CVE sem correção disponível não é algo que o time consiga resolver, e deixar isso reprovar o build só ensina todo mundo a ignorar o scan.</p>
+<h2>Uma lição que aprendi na prática</h2>
+<p>Na primeira versão do repositório público de exemplo, o scan da imagem reprovou por CVE alta em <code>urllib3</code>, <code>msgpack</code> e <code>setuptools</code>. Nenhum era dependência do app: vinham embutidos no pip e no setuptools da imagem base. A saída foi um build em dois estágios (as dependências são instaladas no primeiro) e remover o pip e o setuptools da imagem final, onde não fazem falta. O scan fez o trabalho dele.</p>
+<h2>Resultado</h2>
+<ul><li>O padrão está aplicado em <strong>9 repositórios</strong> da organização.</li><li>O tempo de CI caiu de <strong>240 s para 139 s</strong> nos pipelines da empresa.</li><li>Escrevi uma versão genérica, do zero, com um app de exemplo, e deixei pública. O CI roda em PR e na <code>main</code>, e o release foi testado com uma tag de verdade.</li></ul>
+<p><a href="https://github.com/pedrohl45/devsecops-pipeline-template" target="_blank" rel="noopener">Ver o repositório no GitHub</a></p>
+<h2>O que aprendi</h2>
+<ul><li>Segurança só funciona quando reprova o build. Aviso ignorado é a mesma coisa que ausência.</li><li>O que você testa precisa ser exatamente o que você publica.</li><li>Reprovar por tudo ensina a ignorar. Escolher o que reprova é parte do desenho.</li></ul>
+<p class="foot"><a href="../#projetos">← Projetos</a></p>
+</main>
+</body>
+</html>

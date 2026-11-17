@@ -34,6 +34,7 @@
         'projects.personal': 'Personal & academic projects',
         'projects.private': 'Internship project · private code',
         'projects.case': 'Case study',
+        'projects.generic': 'Public version',
         'p.sec.t': 'Standard DevSecOps pipeline',
         'p.sec.d': 'Template repository with CI/CD and security ready so every company project starts right: secret, vulnerability and code scanning, non-root Docker images and automatic dependency updates. Applied to 9 repositories, and CI time dropped from 240 s to 139 s.',
         'p.stock.t': 'Multi-warehouse inventory control',
