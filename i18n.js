@@ -16,7 +16,7 @@
 
         'about.title': 'About Me',
         'about.p1': 'I study <strong>Software Development</strong> at <strong>Fatec São José dos Campos</strong>.',
-        'about.p2': 'I consider myself a versatile developer. My main focus is Backend and API integrations, but I can also design landing pages, build responsive frontends and customize operating system interfaces from scratch.',
+        'about.p2': 'I consider myself a versatile developer. My main focus is Backend and API integrations, but I also build landing pages, responsive frontends and customize operating system interfaces.',
         'about.p3': 'At work I use <strong>Ubuntu</strong>-based distros (Kubuntu) and run the heaviest workloads on <strong>NVIDIA</strong> machines over <strong>SSH</strong>. At home my system is <strong>Arch Linux</strong> (where I fully riced my environment), and I also have experience with <strong>Debian and Linux Mint</strong> and desktop environments like <strong>Cinnamon</strong>. I build complex Discord bots (with state isolation, OOP and databases) and heavy automation integrations.',
         'about.p4': 'Away from code, I\'m probably listening to Post-Punk or Darkwave and trying to learn some new technology late at night.',
         'about.p5': 'I\'m currently a <strong>software development intern at ITNEX</strong>, working on web apps with React and TypeScript, APIs in Node.js and Python, integration with the Protheus ERP and IoT with ESP32. I\'m open to talking about junior roles.',
@@ -44,7 +44,7 @@
         'p.auto.d': 'Python command-line tool that syncs course materials and deadlines from Microsoft Teams to Google Drive and Google Calendar. It preserves the folder hierarchy, avoids re-uploading files, handles pagination and API errors, and updates the event when a deadline changes. OAuth2 authentication, tests with pytest and CI on GitHub Actions.',
         'p.credit.t': 'AvoCredit: Credit Potential',
         'p.credit.d': '1st-semester integrated project at FATEC. Web system for credit analysts that calculates the credit potential of regions and states in Northern and Northeastern Brazil using public data from BCB/BACEN, IBGE, SPA and Data Senado. It combines four indicators, shows interactive charts and lets users save filters. Built with Scrum and Jira.',
-        'p.tayama.d': 'Discord bot + SPA web dashboard built to organize college life. The bot tracks absences, grades and the risk of failing courses, and manages classes in isolation, storing everything in its own MySQL relational database.',
+        'p.tayama.d': 'Discord bot + SPA web dashboard built to organize college life. The bot tracks absences, grades and the risk of failing courses, and each student's data is kept separate from the others, stored in a MySQL database.',
         'p.yamada.t': 'YamadaBot & Landing Page',
         'p.yamada.d': 'A complete music ecosystem for Discord. I built the audio bot with yt-dlp and FFmpeg (with state isolation across multiple servers) and coded the responsive landing page that presents the project.',
         'p.arch.d': 'My personal lab, where I configured my whole Arch Linux system from scratch. I built customized graphical interfaces (window managers) and Shell scripts to automate my daily workflow.',
