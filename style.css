@@ -942,3 +942,36 @@ body { overflow-x: hidden; }
         height: 42px;
     }
 }
+
+.hero-open{margin:-0.4rem 0 1.4rem}
+
+.projetos .section-container .projects-intro {
+    color: var(--text-muted);
+    max-width: 44rem;
+    margin: 0 auto 2.6rem;
+    text-align: center;
+    line-height: 1.7;
+}
+.projetos .section-container .projects-more {
+    margin-top: 2.2rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.7;
+}
+.projects-more a {
+    color: var(--primary);
+    font-weight: 500;
+}
+.projects-more a:hover {
+    text-decoration: underline;
+}
+/* o rótulo "código privado" ocupa a linha toda; os botões vão embaixo sem quebrar o texto */
+.project-links {
+    flex-wrap: wrap;
+}
+.project-links .project-private {
+    flex-basis: 100%;
+}
+.project-links .btn-icon {
+    white-space: nowrap;
+}

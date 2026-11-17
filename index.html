@@ -25,7 +25,7 @@
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     
-    <link rel="stylesheet" href="style.css?v=20261107">
+    <link rel="stylesheet" href="style.css?v=20261117">
     <script>
         (function () {
             var t = null;
@@ -49,9 +49,9 @@
 
             <ul class="nav-links" id="nav-links">
                 <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
-                <li><a href="#habilidades" data-i18n="nav.skills">Arsenal Técnico</a></li>
                 <li><a href="#projetos" data-i18n="nav.projects">Projetos</a></li>
                 <li><a href="#formacao" data-i18n="nav.experience">Experiência</a></li>
+                <li><a href="#habilidades" data-i18n="nav.skills">Arsenal Técnico</a></li>
                 <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
             </ul>
         </div>
@@ -62,7 +62,8 @@
             <div class="hero-text fade-in">
                 <h1 data-i18n="hero.title">Opa, eu sou o<br><span class="highlight">Pedro Henrique</span></h1>
                 <h2 data-i18n="hero.role">Desenvolvedor de Software</h2>
-                <p data-i18n="hero.text">Curto construir sistemas completos, do banco de dados e APIs robustas até a interface. Cuido da segurança no pipeline: CI/CD, scans automáticos e containers sem root. Uso Ubuntu no trabalho e Arch Linux em casa (onde criei meu próprio workflow visual) e passo a maior parte do tempo no terminal.</p>
+                <p data-i18n="hero.text">Curto construir sistemas completos, do banco de dados à interface. Meu foco é backend, integração de APIs e segurança no pipeline (CI/CD, scans automáticos e containers sem root).</p>
+                <p class="hero-open"><span class="tag" data-i18n="hero.open">Aberto a vagas júnior de backend</span></p>
                 <div class="hero-cta">
                     <a href="#projetos" class="btn btn-primary" data-i18n="hero.cta">Ver Projetos</a>
                     <div class="social-links-hero">
@@ -85,28 +86,240 @@
             <div class="sobre-content">
                 <div class="sobre-text fade-in">
                     <p data-i18n="about.p1">Estudo <strong>Desenvolvimento de Software</strong> na <strong>Fatec São José dos Campos</strong>.</p>
-                    <p data-i18n="about.p2">Me considero um desenvolvedor bem versátil. Apesar do meu foco forte em Backend e integrações de API, também faço landing pages, frontends responsivos e customizo interfaces de sistemas operacionais.</p>
-                    <p data-i18n="about.p3">No trabalho uso distros baseadas em <strong>Ubuntu</strong> (Kubuntu) e rodo as cargas mais pesadas em máquinas <strong>NVIDIA</strong> acessadas por <strong>SSH</strong>. Em casa meu sistema é o <strong>Arch Linux</strong> (onde fiz o ricing completo do ambiente), e também tenho vivência com <strong>Debian e Linux Mint</strong>, além de dominar interfaces como o <strong>Cinnamon</strong>. Construo bots complexos para Discord (com isolamento de estado, OOP e banco de dados) e faço integrações pesadas de automação.</p>
+                    <p data-i18n="about.p2">Meu foco é <strong>backend e integração de APIs</strong>, com segurança no pipeline. Também faço frontend (React) e landing pages quando o projeto precisa.</p>
+                    <p data-i18n="about.p3">No trabalho uso <strong>Ubuntu</strong> (Kubuntu) e rodo as cargas mais pesadas em máquinas <strong>NVIDIA</strong> acessadas por <strong>SSH</strong>. Em casa uso <strong>Arch Linux</strong>, onde monto o ambiente do zero. Também construo bots para Discord, com estado isolado por servidor e banco de dados.</p>
                     <p data-i18n="about.p4">Fora do código, provavelmente estou ouvindo Post-Punk ou Darkwave e tentando aprender alguma tecnologia nova de madrugada.</p>
                     <p data-i18n="about.p5">Hoje sou <strong>estagiário de desenvolvimento de software na ITNEX</strong>, onde trabalho com aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Datasul, IoT com ESP32 e DevOps/DevSecOps, com CI/CD e scans de segurança (Gitleaks, Trivy e Semgrep). Sigo aberto a conversar sobre vagas júnior.</p>
                 </div>
                 <div class="sobre-stats fade-in">
                     <div class="stat-card">
-                        <i data-lucide="folder-git-2"></i>
-                        <h3>8</h3>
-                        <p data-i18n="about.stat.repos">Repositórios</p>
+                        <i data-lucide="shield-check"></i>
+                        <h3>9</h3>
+                        <p data-i18n="about.stat.repos">Repositórios com pipeline DevSecOps</p>
                     </div>
                     <div class="stat-card">
-                        <i data-lucide="terminal-square"></i>
-                        <h3>Linux</h3>
-                        <p>Ubuntu + Arch</p>
+                        <i data-lucide="timer"></i>
+                        <h3>-42%</h3>
+                        <p data-i18n="about.stat.ci">Tempo de CI (240 s → 139 s)</p>
                     </div>
                     <div class="stat-card">
-                        <i data-lucide="graduation-cap"></i>
-                        <h3>Fatec SJC</h3>
-                        <p data-i18n="about.stat.degree">Graduação</p>
+                        <i data-lucide="book-open"></i>
+                        <h3>3</h3>
+                        <p data-i18n="about.stat.cases">Estudos de caso publicados</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projetos" id="projetos">
+        <div class="section-container">
+            <h2 class="section-title fade-in" data-i18n="projects.title">Projetos</h2>
+            <p class="projects-intro fade-in" data-i18n="projects.intro">O código dos projetos de estágio é privado. Por isso escrevi estudos de caso com as decisões técnicas, sem nomes de clientes.</p>
+
+            <h3 class="projects-group-title fade-in" data-i18n="projects.intern">Estágio · ITNEX</h3>
+            <div class="projects-grid">
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.sec.t">Pipeline DevSecOps padrão</h3>
+                        <p class="project-desc" data-i18n="p.sec.d">Repositório-modelo com CI/CD e segurança prontos para todo projeto da empresa nascer certo: scan de segredos, de vulnerabilidades e de código, imagens Docker sem root e atualização automática de dependências. Aplicado em 9 repositórios, e o tempo do CI caiu de 240 s para 139 s.</p>
+                        <div class="project-tags">
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">Gitleaks</span>
+                            <span class="tag">Trivy</span>
+                            <span class="tag">Semgrep</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
+                            <a href="https://github.com/pedrohl45/devsecops-pipeline-template" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> <span data-i18n="projects.generic">Versão pública</span></a>
+                            <a href="casos/pipeline-devsecops.html" data-case-href="casos/pipeline-devsecops.html" data-case-href-en="casos/pipeline-devsecops.en.html" class="btn-icon"><i data-lucide="book-open"></i> <span data-i18n="projects.case">Estudo de caso</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.stock.t">Controle de estoque multidepósito</h3>
+                        <p class="project-desc" data-i18n="p.stock.d">Aplicação web para controlar o estoque de um cliente em vários depósitos: movimentações, solicitações, aprovação e separação, com acesso por perfil. Integrada ao ERP Datasul (TOTVS) do cliente.</p>
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Datasul</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
+                            <a href="casos/integracao-erp.html" data-case-href="casos/integracao-erp.html" data-case-href-en="casos/integracao-erp.en.html" class="btn-icon"><i data-lucide="book-open"></i> <span data-i18n="projects.case">Estudo de caso</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.panel.t">Painel de gestão à vista</h3>
+                        <p class="project-desc" data-i18n="p.panel.d">Painel para TV que acompanha as 8 etapas do fluxo do produto, com tela de consulta por busca e filtros e acesso por perfil.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Vite</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.iot.t">Plataforma de etiquetas eletrônicas</h3>
+                        <p class="project-desc" data-i18n="p.iot.d">Plataforma própria para etiquetas eletrônicas de gôndola: o preço vem do ERP, passa por um backend em FastAPI e MQTT e chega à etiqueta por um gateway ESP32 em Bluetooth LE. O caixa só libera o preço novo depois da confirmação da etiqueta.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">MQTT</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">BLE</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
+                            <a href="casos/etiquetas-eletronicas.html" data-case-href="casos/etiquetas-eletronicas.html" data-case-href-en="casos/etiquetas-eletronicas.en.html" class="btn-icon"><i data-lucide="book-open"></i> <span data-i18n="projects.case">Estudo de caso</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.ble.t">Monitoramento de sensores BLE</h3>
+                        <p class="project-desc" data-i18n="p.ble.d">Leitura de temperatura, umidade e bateria de sensores Bluetooth no ESP32-S3, enviada por MQTT a um coletor com SQLite e exibida em painel web.</p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">MQTT</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <h3 class="projects-group-title fade-in" data-i18n="projects.personal">Projetos pessoais e acadêmicos</h3>
+            <div class="projects-grid">
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.auto.t">Automação Fatec: Teams → Google</h3>
+                        <p class="project-desc" data-i18n="p.auto.d">Ferramenta de linha de comando em Python que sincroniza materiais e prazos do Microsoft Teams com o Google Drive e o Google Agenda. Preserva a hierarquia de pastas, evita reenvio de arquivos, trata paginação e erros da API e atualiza o evento quando o prazo muda. Autenticação OAuth2, testes com pytest e CI no GitHub Actions.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Graph API</span>
+                            <span class="tag">Google APIs</span>
+                            <span class="tag">pytest + CI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pedrohl45/automacao-fatec" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 data-i18n="p.credit.t">AvoCredit: Potencial de Crédito</h3>
+                        <p class="project-desc" data-i18n="p.credit.d">Projeto integrado do 1º semestre da FATEC. Sistema web para analistas de crédito que calcula o potencial de crédito de regiões e estados do Norte e Nordeste com dados públicos do BCB/BACEN, IBGE, SPA e Data Senado. Combina quatro indicadores, mostra gráficos interativos e permite salvar filtros. Desenvolvido com Scrum e Jira.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python/Flask</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag" data-i18n="tag.analysis">Análise de dados</span>
+                            <span class="tag">HTML/CSS/JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                            <a href="https://api-dsm-1-semestre-2026.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-content">
+                        <h3>TayamaBot</h3>
+                        <p class="project-desc" data-i18n="p.tayama.d">Bot para Discord + Painel Web SPA criados pra organizar a vida na faculdade. O bot calcula faltas, notas, riscos de DP, e os dados de cada aluno ficam separados dos outros, salvos num banco MySQL.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Discord.py</span>
+                            <span class="tag">HTML/CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pedrohl45/tayama-fatec-bot" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                            <a href="https://pedrohl45-tayama-fatec-bot.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
+                    </div>
+                </article>
+
+                
+
+                
+
+                
+
+            </div>
+            <p class="projects-more fade-in" data-i18n="projects.more">Também: <a href="https://github.com/pedrohl45/yamada-music-bot" target="_blank" rel="noopener">YamadaBot</a> (bot de música para Discord, com <a href="https://yamada-music-bot-site.vercel.app" target="_blank" rel="noopener">landing page</a>) · <a href="https://github.com/pedrohl45/estudos-linux" target="_blank" rel="noopener">Arch Linux: ricing e scripts em Shell</a>.</p>
+        </div>
+    </section>
+
+    <section class="formacao" id="formacao">
+        <div class="section-container">
+            <h2 class="section-title fade-in" data-i18n="exp.title">Experiência & Formação</h2>
+            <div class="timeline">
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-i18n="exp.intern.date">out/2026 – atual</span>
+                        <h3 data-i18n="exp.intern.role">Estagiário de Desenvolvimento de Software</h3>
+                        <h4>ITNEX</h4>
+                        <p data-i18n="exp.intern.desc">Aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Datasul (TOTVS) e projetos de IoT com ESP32 e MQTT, em ambientes com Docker, e pipelines de CI/CD (DevOps/DevSecOps) com Gitleaks, Trivy e Semgrep. Desenvolvimento em Ubuntu, com execução remota em máquinas NVIDIA via SSH.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-i18n="exp.course.date">Cursando</span>
+                        <h3 data-i18n="exp.course.title">Desenvolvimento de Software Multiplataforma</h3>
+                        <h4>Fatec São José dos Campos</h4>
+                        <p data-i18n="exp.course.desc">Estudando programação focada no mercado, cobrindo backend, frontend, banco de dados e metodologias ágeis de forma prática.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-i18n="exp.api.date">Projetos Acadêmicos</span>
+                        <h3 data-i18n="exp.api.title">Aprendizagem por Projetos Integrados (API)</h3>
+                        <h4>Fatec SJC</h4>
+                        <p data-i18n="exp.api.desc">Projetos desenvolvidos em grupo todo semestre, resolvendo problemas reais para clientes parceiros da faculdade, com Scrum e Jira.</p>
+                        <p class="timeline-project" data-i18n="exp.api.project"><strong>1º semestre (2026) · AvoCredit.</strong> Sistema web que cruza dados públicos (BCB, IBGE, SPA e Data Senado) em um indicador de potencial de crédito por região e estado. Os detalhes estão no card do projeto.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python/Flask</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">Google Colab</span>
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">Scrum/Jira</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
+                            <a href="https://api-dsm-1-semestre-2026.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -247,243 +460,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projetos" id="projetos">
-        <div class="section-container">
-            <h2 class="section-title fade-in" data-i18n="projects.title">Projetos</h2>
-
-            <h3 class="projects-group-title fade-in" data-i18n="projects.intern">Estágio · ITNEX</h3>
-            <div class="projects-grid">
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.sec.t">Pipeline DevSecOps padrão</h3>
-                        <p class="project-desc" data-i18n="p.sec.d">Repositório-modelo com CI/CD e segurança prontos para todo projeto da empresa nascer certo: scan de segredos, de vulnerabilidades e de código, imagens Docker sem root e atualização automática de dependências. Aplicado em 9 repositórios, e o tempo do CI caiu de 240 s para 139 s.</p>
-                        <div class="project-tags">
-                            <span class="tag">GitHub Actions</span>
-                            <span class="tag">Gitleaks</span>
-                            <span class="tag">Trivy</span>
-                            <span class="tag">Semgrep</span>
-                            <span class="tag">Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
-                            <a href="https://github.com/pedrohl45/devsecops-pipeline-template" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> <span data-i18n="projects.generic">Versão pública</span></a>
-                            <a href="casos/pipeline-devsecops.html" data-case-href="casos/pipeline-devsecops.html" data-case-href-en="casos/pipeline-devsecops.en.html" class="btn-icon"><i data-lucide="book-open"></i> <span data-i18n="projects.case">Estudo de caso</span></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.stock.t">Controle de estoque multidepósito</h3>
-                        <p class="project-desc" data-i18n="p.stock.d">Aplicação web para controlar o estoque de um cliente em vários depósitos: movimentações, solicitações, aprovação e separação, com acesso por perfil. Integrada ao ERP Datasul (TOTVS) do cliente.</p>
-                        <div class="project-tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">React</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">Datasul</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
-                            <a href="casos/integracao-erp.html" data-case-href="casos/integracao-erp.html" data-case-href-en="casos/integracao-erp.en.html" class="btn-icon"><i data-lucide="book-open"></i> <span data-i18n="projects.case">Estudo de caso</span></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.panel.t">Painel de gestão à vista</h3>
-                        <p class="project-desc" data-i18n="p.panel.d">Painel para TV que acompanha as 8 etapas do fluxo do produto, com tela de consulta por busca e filtros e acesso por perfil.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Vite</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">PostgreSQL</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.iot.t">Projeto interno de IoT</h3>
-                        <p class="project-desc" data-i18n="p.iot.d">Dispositivos com ESP32-S3 que se comunicam por Bluetooth LE e enviam dados por MQTT a um backend em Python.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">MQTT</span>
-                            <span class="tag">ESP32</span>
-                            <span class="tag">BLE</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
-                            <a href="casos/etiquetas-eletronicas.html" data-case-href="casos/etiquetas-eletronicas.html" data-case-href-en="casos/etiquetas-eletronicas.en.html" class="btn-icon"><i data-lucide="book-open"></i> <span data-i18n="projects.case">Estudo de caso</span></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.ble.t">Monitoramento de sensores BLE</h3>
-                        <p class="project-desc" data-i18n="p.ble.d">Leitura de temperatura, umidade e bateria de sensores Bluetooth no ESP32-S3, enviada por MQTT a um coletor com SQLite e exibida em painel web.</p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">MQTT</span>
-                            <span class="tag">SQLite</span>
-                            <span class="tag">Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-private"><i data-lucide="lock"></i> <span data-i18n="projects.private">Projeto de estágio · código privado</span></span>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-            <h3 class="projects-group-title fade-in" data-i18n="projects.personal">Projetos pessoais e acadêmicos</h3>
-            <div class="projects-grid">
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.auto.t">Automação Fatec: Teams → Google</h3>
-                        <p class="project-desc" data-i18n="p.auto.d">Ferramenta de linha de comando em Python que sincroniza materiais e prazos do Microsoft Teams com o Google Drive e o Google Agenda. Preserva a hierarquia de pastas, evita reenvio de arquivos, trata paginação e erros da API e atualiza o evento quando o prazo muda. Autenticação OAuth2, testes com pytest e CI no GitHub Actions.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Graph API</span>
-                            <span class="tag">Google APIs</span>
-                            <span class="tag">pytest + CI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/pedrohl45/automacao-fatec" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.credit.t">AvoCredit: Potencial de Crédito</h3>
-                        <p class="project-desc" data-i18n="p.credit.d">Projeto integrado do 1º semestre da FATEC. Sistema web para analistas de crédito que calcula o potencial de crédito de regiões e estados do Norte e Nordeste com dados públicos do BCB/BACEN, IBGE, SPA e Data Senado. Combina quatro indicadores, mostra gráficos interativos e permite salvar filtros. Desenvolvido com Scrum e Jira.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python/Flask</span>
-                            <span class="tag">Chart.js</span>
-                            <span class="tag" data-i18n="tag.analysis">Análise de dados</span>
-                            <span class="tag">HTML/CSS/JS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
-                            <a href="https://api-dsm-1-semestre-2026.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3>TayamaBot</h3>
-                        <p class="project-desc" data-i18n="p.tayama.d">Bot para Discord + Painel Web SPA criados pra organizar a vida na faculdade. O bot calcula faltas, notas, riscos de DP, e os dados de cada aluno ficam separados dos outros, salvos num banco MySQL.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Discord.py</span>
-                            <span class="tag">HTML/CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/pedrohl45/tayama-fatec-bot" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
-                            <a href="https://pedrohl45-tayama-fatec-bot.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3 data-i18n="p.yamada.t">YamadaBot & Landing Page</h3>
-                        <p class="project-desc" data-i18n="p.yamada.d">Um ecossistema completo focado em música para o Discord. Desenvolvi o bot de áudio com yt-dlp e FFmpeg (com isolamento de estado para múltiplos servidores) e programei toda a landing page responsiva que apresenta o projeto.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">yt-dlp</span>
-                            <span class="tag">HTML/CSS/JS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/pedrohl45/yamada-music-bot" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Bot</a>
-                            <a href="https://yamada-music-bot-site.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card fade-in">
-                    <div class="project-content">
-                        <h3>Arch Linux Ricing & Scripts</h3>
-                        <p class="project-desc" data-i18n="p.arch.d">Meu laboratório pessoal onde configurei todo meu sistema Arch Linux do zero. Desenvolvi interfaces gráficas customizadas (Window Managers) e scripts em Shell para automação do meu workflow diário.</p>
-                        <div class="project-tags">
-                            <span class="tag">Shell/Bash</span>
-                            <span class="tag">Linux</span>
-                            <span class="tag">Ricing</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/pedrohl45/estudos-linux" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
-                        </div>
-                    </div>
-                </article>
-
-                
-
-            </div>
-        </div>
-    </section>
-
-    <section class="formacao" id="formacao">
-        <div class="section-container">
-            <h2 class="section-title fade-in" data-i18n="exp.title">Experiência & Formação</h2>
-            <div class="timeline">
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date" data-i18n="exp.intern.date">out/2026 – atual</span>
-                        <h3 data-i18n="exp.intern.role">Estagiário de Desenvolvimento de Software</h3>
-                        <h4>ITNEX</h4>
-                        <p data-i18n="exp.intern.desc">Aplicações web em React e TypeScript, APIs em Node.js e Python, integração com o ERP Datasul (TOTVS) e projetos de IoT com ESP32 e MQTT, em ambientes com Docker, e pipelines de CI/CD (DevOps/DevSecOps) com Gitleaks, Trivy e Semgrep. Desenvolvimento em Ubuntu, com execução remota em máquinas NVIDIA via SSH.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date" data-i18n="exp.course.date">Cursando</span>
-                        <h3 data-i18n="exp.course.title">Desenvolvimento de Software Multiplataforma</h3>
-                        <h4>Fatec São José dos Campos (Prof. Jessen Vidal)</h4>
-                        <p data-i18n="exp.course.desc">Estudando programação focada no mercado, cobrindo backend, frontend, banco de dados e metodologias ágeis de forma prática.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date" data-i18n="exp.api.date">Projetos Acadêmicos</span>
-                        <h3 data-i18n="exp.api.title">Aprendizagem por Projetos Integrados (API)</h3>
-                        <h4>Fatec SJC</h4>
-                        <p data-i18n="exp.api.desc">Projetos desenvolvidos em grupo todo semestre, resolvendo problemas reais para clientes parceiros da faculdade, com Scrum e Jira.</p>
-                        <p class="timeline-project" data-i18n="exp.api.project"><strong>1º semestre (2026) · AvoCredit: potencial de crédito no Norte e Nordeste.</strong> Sistema web para analistas de crédito que identifica regiões com alto potencial de crédito, mas sem acesso ao sistema financeiro tradicional. Cruza dados públicos do BCB/BACEN, IBGE, SPA e Data Senado em um Potencial de Crédito Geral por região e estado, formado por quatro indicadores: inadimplência de recuperação rápida, concentração de crédito caro, dívida saudável x crítica e endividamento por apostas (bets). Tem gráficos comparativos e de evolução com Chart.js, filtros por região, estado, período, prazo e indicador, e filtros salvos para reabrir análises. Análise de dados no Google Colab, backend em Python (Flask) e qualidade de código com Ruff, Lefthook, commitlint e GitHub Actions.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python/Flask</span>
-                            <span class="tag">Chart.js</span>
-                            <span class="tag">Google Colab</span>
-                            <span class="tag">GitHub Actions</span>
-                            <span class="tag">Scrum/Jira</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="github"></i> Repo</a>
-                            <a href="https://api-dsm-1-semestre-2026.vercel.app" target="_blank" rel="noopener" class="btn-icon"><i data-lucide="external-link"></i> Site</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
